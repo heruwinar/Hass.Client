@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceAssemblyReference>true</ProduceAssemblyReference>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.Net.WebSockets.Client" Version="4.3.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="WebSockets.PCL">
+      <HintPath>..\..\..\..\Users\nguyenl\.nuget\packages\websockets.pcl\1.1.9\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10\WebSockets.PCL.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
