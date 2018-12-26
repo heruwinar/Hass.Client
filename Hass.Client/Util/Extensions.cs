@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Threading;
 using System.Net.WebSockets;
-using Hass.Client.Json;
 
 namespace Hass.Client.Util
 {

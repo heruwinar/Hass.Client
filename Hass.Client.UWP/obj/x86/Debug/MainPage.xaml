@@ -1,16 +1,16 @@
-﻿<forms:WindowsPage
-    x:Class="Hass.Client.UWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:forms="using:Xamarin.Forms.Platform.UWP"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Hass.Client.UWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+﻿<forms:WindowsPage x:Class="Hass.Client.UWP.MainPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:forms="using:Xamarin.Forms.Platform.UWP" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:Hass.Client.UWP" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" xmlns:spy="using:FirstFloor.XamlSpy">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+
+
+
+
+
+
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" spy:XamlMetadata.XamlSpyServiceSettings="127.0.0.1|4530|54484" spy:XamlMetadata.SourceInfo="C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\MainPage.xaml|13">
 
     </Grid>
 </forms:WindowsPage>

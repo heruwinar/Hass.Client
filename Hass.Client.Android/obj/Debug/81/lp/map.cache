@@ -3,6 +3,7 @@ Hass.Client
 Newtonsoft.Json
 System.Runtime
 Websockets.Droid
+WebSockets.PCL
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Lifecycle.Common
 Xamarin.Android.Arch.Lifecycle.Runtime
@@ -27,5 +28,3 @@ Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
 netstandard
-WebSockets.PCL
-System.Resources.ResourceManager

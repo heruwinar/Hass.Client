@@ -111,6 +111,7 @@ class MonoPackageManager_Resources {
 		"Hass.Client.dll",
 		"Newtonsoft.Json.dll",
 		"Websockets.Droid.dll",
+		"WebSockets.PCL.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Runtime.dll",
@@ -134,7 +135,6 @@ class MonoPackageManager_Resources {
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
-		"WebSockets.PCL.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

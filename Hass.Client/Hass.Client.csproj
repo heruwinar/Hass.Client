@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <Reference Include="WebSockets.PCL">
-      <HintPath>..\..\..\..\.nuget\packages\websockets.pcl\1.1.9\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10\WebSockets.PCL.dll</HintPath>
+      <HintPath>..\LocalPackages\websockets.pcl\1.1.9\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10\WebSockets.PCL.dll</HintPath>
     </Reference>
   </ItemGroup>
 

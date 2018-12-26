@@ -164,9 +164,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="WebSockets.PCL, Version=1.0.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LocalPackages\websockets.pcl\1.1.9\lib\uap10.0\WebSockets.PCL.dll</HintPath>
+    </Reference>
     <Reference Include="Websockets.Universal, Version=1.0.0.8, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Users\nguyenl\.nuget\packages\websockets.pcl\1.1.9\lib\uap10.0\Websockets.Universal.dll</HintPath>
+      <HintPath>..\LocalPackages\websockets.pcl\1.1.9\lib\uap10.0\Websockets.Universal.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
