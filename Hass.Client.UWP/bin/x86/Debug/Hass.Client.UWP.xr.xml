@@ -45,12 +45,6 @@
       <RootMethod Name="GetColumnSpan" />
       <RootMethod Name="SetColumnSpan" />
     </RootType>
-    <RootType FullName="FirstFloor.XamlSpy.XamlMetadata">
-      <RootMethod Name="GetSourceInfo" />
-      <RootMethod Name="SetSourceInfo" />
-      <RootMethod Name="GetXamlSpyServiceSettings" />
-      <RootMethod Name="SetXamlSpyServiceSettings" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
     </RootType>

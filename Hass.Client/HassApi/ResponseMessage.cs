@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hass.Client.Json;
+using Newtonsoft.Json.Linq;
 
 
 namespace Hass.Client.HassApi
@@ -24,7 +24,7 @@ namespace Hass.Client.HassApi
             Type = type;
         }
 
-        public static ResponseMessage Parse(WsAPI context, JsonObject jsonObj)
+        public static ResponseMessage Parse(WsAPI context, JObject jsonObj)
         {
             string tp = jsonObj.GetValue<string>("type");
 
@@ -48,7 +48,7 @@ namespace Hass.Client.HassApi
 
             res.IsSuccess = jsonObj.GetValue<bool?>("success");
 
-            JsonObject errObj = jsonObj.GetValue<JsonObject>("error");
+            JObject errObj = jsonObj.GetValue<JObject>("error");
 
             if (errObj != null)
             {
@@ -62,7 +62,7 @@ namespace Hass.Client.HassApi
             if(res.RequestMessage?.Type == RequestMessage.MessageType.Get_states)
             {
                 res.States = jsonObj
-                    .GetValue<JsonObject[]>("result")
+                    .GetValue<JObject[]>("result")
                     ?.Select(state => StateResult.Parse(state))
                     .ToArray();
 
@@ -70,7 +70,7 @@ namespace Hass.Client.HassApi
             }
             else if(res.RequestMessage?.Type == RequestMessage.MessageType.Subscribe_events)
             {
-                res.Event = EventResult.Parse(jsonObj.GetValue<JsonObject>("event"));
+                res.Event = EventResult.Parse(jsonObj.GetValue<JObject>("event"));
                 res.Result = res.Event;
             }
             else

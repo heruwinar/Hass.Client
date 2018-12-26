@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hass.Client.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Hass.Client.HassApi
 {
@@ -22,14 +22,19 @@ namespace Hass.Client.HassApi
 
         public EventData Data { get; private set; }
 
-        public static EventResult Parse(JsonObject eventResultJson)
+        public static EventResult Parse(JObject eventResultJson)
         {
+            if(eventResultJson == null)
+            {
+                return null;
+            }
+
             var evt = new EventResult();
             evt.EventType = eventResultJson.GetValue<string>("event_type");
             evt.Origin = eventResultJson.GetValue<string>("origin");
             evt.TimeFired = eventResultJson.GetValue<DateTime>("time_fired");
 
-            JsonObject evtDataJson = eventResultJson.GetValue<JsonObject>("data");
+            JObject evtDataJson = eventResultJson.GetValue<JObject>("data");
             if(evtDataJson != null)
             {
                 evt.Data = EventData.Parse(evtDataJson);
@@ -52,13 +57,13 @@ namespace Hass.Client.HassApi
 
         public StateResult OldState { get; private set; }
 
-        public static EventData Parse(JsonObject dataJson)
+        public static EventData Parse(JObject dataJson)
         {
             var data = new EventData();
 
             data.EntityId = dataJson.GetValue<string>("entity_id");
-            JsonObject oldState = dataJson.GetValue<JsonObject>("old_state");
-            JsonObject newState = dataJson.GetValue<JsonObject>("new_state");
+            JObject oldState = dataJson.GetValue<JObject>("old_state");
+            JObject newState = dataJson.GetValue<JObject>("new_state");
 
             if (oldState != null)
             {

@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 using Xamarin.Forms.Platform.UWP;
 using Windows.UI.Xaml.Media;
 
-//[assembly: ExportRenderer(typeof(Xamarin.Forms.TabbedPage), typeof(Hass.Client.UWP.BottomTabbedPageRender))]
+[assembly: ExportRenderer(typeof(Xamarin.Forms.TabbedPage), typeof(Hass.Client.UWP.BottomTabbedPageRender))]
 
 namespace Hass.Client.UWP
 {

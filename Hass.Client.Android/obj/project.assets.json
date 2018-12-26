@@ -11,25 +11,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "System.Net.WebSockets.Client/4.3.2": {
-        "type": "package",
-        "compile": {
-          "ref/MonoAndroid10/_._": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid10/_._": {}
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netstandard1.3/System.Net.WebSockets.Client.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/netstandard1.3/System.Net.WebSockets.Client.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "Websockets.Pcl/1.1.9": {
         "type": "package",
         "compile": {
@@ -384,7 +365,6 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.1",
-          "System.Net.WebSockets.Client": "4.3.2",
           "Xamarin.Forms": "3.4.0.1008975"
         },
         "compile": {
@@ -434,38 +414,6 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.12.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec"
-      ]
-    },
-    "System.Net.WebSockets.Client/4.3.2": {
-      "sha512": "wmWSeBJ+7j7cWyTInHZ5OXzRuKh+2LDZ9psG1UYw1BzNZcbYBxe7KBMaDLSIOD1wn1uFDLRGG4+vLqKj7n/Z+w==",
-      "type": "package",
-      "path": "system.net.websockets.client/4.3.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Net.WebSockets.Client.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Net.WebSockets.Client.dll",
-        "ref/netstandard1.3/System.Net.WebSockets.Client.dll",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "runtimes/unix/lib/netstandard1.3/System.Net.WebSockets.Client.dll",
-        "runtimes/win/lib/net46/System.Net.WebSockets.Client.dll",
-        "runtimes/win/lib/netcore50/System.Net.WebSockets.Client.dll",
-        "runtimes/win/lib/netstandard1.3/System.Net.WebSockets.Client.dll",
-        "system.net.websockets.client.4.3.2.nupkg.sha512",
-        "system.net.websockets.client.nuspec"
       ]
     },
     "Websockets.Pcl/1.1.9": {
@@ -765,7 +713,7 @@
       ]
     },
     "Xamarin.Forms/3.4.0.1008975": {
-      "sha512": "tM9syeev45u92OFENGjq+Zw8WiEwLJFiXe317XpL9SY2RRk9sm2fc1lDVjzwz0da+5ZP5fi24NAPsPQdxBdMwQ==",
+      "sha512": "036/h8HtzRFgTrfhY57IeHoYRsPTO2XTA6uUFdmZzw2QR1sdszfofhI9HrCJTRx6fCzmjPg5Cxk5chYrjKarNw==",
       "type": "package",
       "path": "xamarin.forms/3.4.0.1008975",
       "files": [
@@ -920,7 +868,6 @@
     "MonoAndroid,Version=v8.1": [
       "Hass.Client >= 1.0.0",
       "Newtonsoft.Json >= 12.0.1",
-      "System.Net.WebSockets.Client >= 4.3.2",
       "Websockets.Pcl >= 1.1.9",
       "Xamarin.Android.Support.Design >= 27.0.2.1",
       "Xamarin.Android.Support.v4 >= 27.0.2.1",
@@ -931,20 +878,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nguyenl\\.nuget\\packages\\": {}
+    "C:\\Users\\Loc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client.Android\\Hass.Client.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Loc\\Documents\\GitHub\\Hass.Client\\Hass.Client.Android\\Hass.Client.Android.csproj",
       "projectName": "Hass.Client.Android",
-      "projectPath": "C:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client.Android\\Hass.Client.Android.csproj",
-      "packagesPath": "C:\\Users\\nguyenl\\.nuget\\packages\\",
-      "outputPath": "C:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client.Android\\obj\\",
+      "projectPath": "C:\\Users\\Loc\\Documents\\GitHub\\Hass.Client\\Hass.Client.Android\\Hass.Client.Android.csproj",
+      "packagesPath": "C:\\Users\\Loc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Loc\\Documents\\GitHub\\Hass.Client\\Hass.Client.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\nguyenl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Loc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -957,8 +904,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client\\Hass.Client.csproj": {
-              "projectPath": "C:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client\\Hass.Client.csproj"
+            "C:\\Users\\Loc\\Documents\\GitHub\\Hass.Client\\Hass.Client\\Hass.Client.csproj": {
+              "projectPath": "C:\\Users\\Loc\\Documents\\GitHub\\Hass.Client\\Hass.Client\\Hass.Client.csproj"
             }
           }
         }
@@ -970,10 +917,6 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[12.0.1, )"
-          },
-          "System.Net.WebSockets.Client": {
-            "target": "Package",
-            "version": "[4.3.2, )"
           },
           "Websockets.Pcl": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers",

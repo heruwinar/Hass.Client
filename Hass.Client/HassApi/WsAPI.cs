@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using Hass.Client.HassApi.Websocket;
-using Hass.Client.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Hass.Client.HassApi
 {
@@ -72,15 +72,16 @@ namespace Hass.Client.HassApi
             object sender,
             MessageWebSocketMessageReceivedEventArgs args)
         {
-            ProcessResponse(JsonObject.Parse(args.Message));
+            ProcessResponse(JObject.Parse(args.Message));
         }
 
-        private void ProcessResponse(JsonObject responseJson)
+        private void ProcessResponse(JObject responseJson)
         {
             var response = ResponseMessage.Parse(this, responseJson);
             switch (response.Type)
             {
                 case ResponseMessage.MessageType.Auth_required:
+                    //ws.SendAsync("{\"type\": \"auth\", \"api_password\": \"l159456753\"}");
                     SendMessageAsync(RequestMessage.CreateAuthMessage(APIPassword));
                     break;
                 case ResponseMessage.MessageType.Auth_invalid:
@@ -97,7 +98,6 @@ namespace Hass.Client.HassApi
                     OnResultReceived(response);
                     break;
             }
-
         }
 
         public Uri Endpoint { get; private set; }

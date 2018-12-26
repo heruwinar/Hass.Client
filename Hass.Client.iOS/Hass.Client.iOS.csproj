@@ -132,14 +132,18 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
+    <Reference Include="Websockets.Ios, Version=1.0.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\.nuget\packages\websockets.pcl\1.1.9\lib\xamarinios10\Websockets.Ios.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.1</Version>
     </PackageReference>
-    <PackageReference Include="System.Net.WebSockets.Client">
-      <Version>4.3.2</Version>
+    <PackageReference Include="Square.SocketRocket">
+      <Version>0.4.2</Version>
     </PackageReference>
     <PackageReference Include="Websockets.Pcl">
       <Version>1.1.9</Version>

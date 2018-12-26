@@ -34,7 +34,12 @@ namespace Hass.Client
 
             states = await wsClient.ListStatesAsync();
 
-            //wsClient.StateChanged += OnWsClientStateChanged;
+            wsClient.StateChanged += OnWsClientStateChanged;
+        }
+
+        private void OnWsClientStateChanged(object sender, HassApi.StateChangedEventArgs e)
+        {
+
         }
 
         //private void OnWsClientStateChanged(object sender, HassApi.StateChangedEventArgs e)

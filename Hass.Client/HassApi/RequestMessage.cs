@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hass.Client.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Hass.Client.HassApi
 {
@@ -42,14 +42,17 @@ namespace Hass.Client.HassApi
         {
             Id = messageId;
 
-            JsonObject json = JsonObject.Create(BuildRequestObject()) ?? new JsonObject();
+            JObject json = JObject.FromObject(BuildRequestObject() ?? new object());
 
             if(Id != null)
             {
                 json["id"] = Id.Value;
             }
+
             json["type"] = Type.ToString().ToLower();
-            return json.Stringify();
+
+            string stringify = json.ToString();
+            return stringify;
         }
 
         public static RequestMessage CreateAuthMessage(string api_password)

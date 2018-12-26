@@ -1,31 +1,34 @@
 ﻿using System;
-using System.Text;
+using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Hass.Client.Json
 {
     public sealed class JsonObject
     {
-        private Dictionary<string, object> jsonData;
+        private Dictionary<string, JToken> jsonData;
 
         public JsonObject()
-            : this(new Dictionary<string, object>())
+            : this(new Dictionary<string, JToken>())
         {
 
         }
 
-        private JsonObject(Dictionary<string, object> jsonData)
+        private JsonObject(Dictionary<string, JToken> jsonData)
         {
             this.jsonData = jsonData;
         }
 
         public static JsonObject Parse(string json)
         {
-            Dictionary<string, object> jsonData =
-                 new JsonSerializer().Deserialize<Dictionary<string, object>>(
+            JValue v;
+            
+            Dictionary<string, JToken> jsonData =
+                 new JsonSerializer().Deserialize<Dictionary<string, JToken>>(
                             new JsonTextReader(new StringReader(json)));
 
             return new JsonObject(jsonData);
@@ -41,46 +44,48 @@ namespace Hass.Client.Json
             return Parse(json);
         }
 
-        public object this[string key]
+
+        private object JTokenToValue(JToken token, Type type)
         {
-            get
+            Action<Type> checkValueType = (valTp) =>
             {
-                return jsonData[key];
-            }
-            set
-            {
-                var jsonObj = value as JsonObject;
-                if(jsonObj != null)
+                if (type != valTp)
                 {
-                    value = jsonObj.jsonData;
+                    throw new ArgumentException($"expect typeof(T) is {valTp}");
                 }
-                jsonData[key] = value;
+            };
+
+
+
+            JObject obj = token as JObject;
+            if (obj != null)
+            {
+                checkValueType(typeof(JsonObject));
+                return new JsonObject(((IEnumerable<KeyValuePair<string, JToken>>)obj).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
             }
+
+            JArray array = token as JArray;
+            if (array != null)
+            {
+                array.Select(t => (JsonObject)JTokenToValue(t, type.GetElementType())).ToArray();
+            }
+            return token.ToObject(type);
         }
+
 
         public T GetValue<T>(string key, T defaultValue = default(T))
         {
-            object val = null;
-            if (jsonData == null || !jsonData.TryGetValue(key, out val) || val == null)
+            JToken tok = null;
+            if (jsonData == null || !jsonData.TryGetValue(key, out tok) || tok == null)
             {
                 return defaultValue;
             }
+            return (T)(object)JTokenToValue(tok, typeof(T));
+        }
 
-            Type tp = typeof(T);
-            if (tp == typeof(string))
-            {
-                return (T)(object)val.ToString();
-            }
-            if(tp == typeof(JsonObject))
-            {
-                return (T)(object)new JsonObject((Dictionary<string, object>)val);
-            }
-            if (tp == typeof(JsonObject[]))
-            {
-                 
-            }
-
-            return (T)val;
+        public void SetValue<T>(string key, T value)
+        {
+            jsonData[key] = new JValue(value);
         }
 
         public string Stringify()

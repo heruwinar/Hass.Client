@@ -19,7 +19,17 @@ namespace Hass.Client.HassApi.Websocket
         {
             connection = WebSocketFactory.Create();
             connection.Open(endpoint);
+            connection.OnClosed += Connection_OnClosed;
             connection.OnMessage += Connection_OnMessage;
+            connection.OnError += Connection_OnError;
+        }
+
+        private void Connection_OnError(string obj)
+        {
+        }
+
+        private void Connection_OnClosed()
+        {
         }
 
         private void Connection_OnMessage(string msg)
@@ -37,11 +47,13 @@ namespace Hass.Client.HassApi.Websocket
 
         public Task SendTask(string msg)
         {
-            return Task.Factory.StartNew(
-                () => connection.Send(msg),
-                CancellationToken.None,
-                TaskCreationOptions.LongRunning,
-                TaskScheduler.Default);
+            connection.Send(msg);
+            return Task.CompletedTask;
+            //return Task.Factory.StartNew(
+            //    () => connection.Send(msg),
+            //    CancellationToken.None,
+            //    TaskCreationOptions.LongRunning,
+            //    TaskScheduler.Default);
         }
 
     }
