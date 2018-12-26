@@ -22,20 +22,33 @@ namespace Hass.Client.HassApi
             Media_player_thumbnail,
         }
 
+        private TaskCompletionSource<ResponseMessage> taskCompleteSource = new TaskCompletionSource<ResponseMessage>();
+
         public RequestMessage(MessageType type, object requestObj = null)
             : base(null)
         {
             Type = type;
             RequestObject = requestObj;
+            CreatedOn = DateTime.Now;
         }
 
+
         public MessageType Type { get; private set; }
+
+        public DateTime CreatedOn { get; private set; }
 
         public object RequestObject { get; set; }
 
         protected virtual object BuildRequestObject()
         {
             return RequestObject;
+        }
+
+        public override int? DetermineMessageId()
+        {
+            return Type == MessageType.Auth 
+                ? new int?(AuthResponseMessage.DEFAULT_MESSAGEID) 
+                : base.DetermineMessageId();
         }
 
         public string BuildRequestJson(int? messageId)
@@ -70,6 +83,26 @@ namespace Hass.Client.HassApi
             return new RequestMessage(
                 MessageType.Call_service,
                 new { domain = domain, service = service, service_data = serviceData });
+        }
+
+        public Task<ResponseMessage> Task
+        {
+            get
+            {
+                return taskCompleteSource.Task;
+            }
+        }
+
+        public void Complete(ResponseMessage response, Exception error)
+        {
+            if (response != null)
+            {
+                taskCompleteSource.SetResult(response);
+            }
+            if (error != null)
+            {
+                taskCompleteSource.SetException(error);
+            }
         }
 
     }

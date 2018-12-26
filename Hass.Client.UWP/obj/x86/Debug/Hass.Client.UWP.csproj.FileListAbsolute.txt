@@ -610,3 +610,11 @@ C:\Users\Loc\Documents\GitHub\Hass.Client\Hass.Client.UWP\obj\x86\Debug\qualifie
 C:\Users\Loc\Documents\GitHub\Hass.Client\Hass.Client.UWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Loc\Documents\GitHub\Hass.Client\Hass.Client.UWP\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 C:\Users\Loc\Documents\GitHub\Hass.Client\Hass.Client.UWP\obj\x86\Debug\ProjectArchitectures.txt
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\bin\x86\Debug\libEGL.dll
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\bin\x86\Debug\libGLESv2.dll
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\bin\x86\Debug\libSkiaSharp.dll
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.dll
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.Extended.Svg.dll
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.Views.Interop.UWP.dll
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.Views.UWP.dll
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.Views.Forms.dll

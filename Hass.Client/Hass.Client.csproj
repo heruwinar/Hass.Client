@@ -11,7 +11,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Controls\Svg\Alarm-armed-away.svg" />
+    <None Remove="Views\Controls\Svg\Alarm-armed-home.svg" />
+    <None Remove="Views\Controls\Svg\Alarm-pending.svg" />
+    <None Remove="Views\Controls\Svg\Alarm-triggered.svg" />
+    <None Remove="Views\Controls\Svg\Bell.svg" />
+    <None Remove="Views\Controls\Svg\Lock-locked.svg" />
+    <None Remove="Views\Controls\Svg\Lock-unlocked.svg" />
+    <None Remove="Views\Controls\Svg\ZWave.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Controls\Svg\Alarm-armed-away.svg" />
+    <EmbeddedResource Include="Views\Controls\Svg\Alarm-armed-home.svg" />
+    <EmbeddedResource Include="Views\Controls\Svg\Alarm-pending.svg" />
+    <EmbeddedResource Include="Views\Controls\Svg\Alarm-triggered.svg" />
+    <EmbeddedResource Include="Views\Controls\Svg\Bell.svg" />
+    <EmbeddedResource Include="Views\Controls\Svg\Lock-locked.svg" />
+    <EmbeddedResource Include="Views\Controls\Svg\Lock-unlocked.svg" />
+    <EmbeddedResource Include="Views\Controls\Svg\ZWave.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />  
   </ItemGroup>
 

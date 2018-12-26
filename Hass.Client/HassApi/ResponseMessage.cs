@@ -18,7 +18,7 @@ namespace Hass.Client.HassApi
             Event
         }
 
-        public ResponseMessage(int? id, MessageType type)
+        protected ResponseMessage(int? id, MessageType type)
             : base(id)
         {
             Type = type;
@@ -35,49 +35,55 @@ namespace Hass.Client.HassApi
 
             MessageType msgTp = (MessageType)Enum.Parse(typeof(MessageType), tp, true);
 
+            ResponseMessage responseMsg;
+
             if (msgTp == MessageType.Auth_invalid
                 || msgTp == MessageType.Auth_ok
                 || msgTp == MessageType.Auth_required)
             {
-                return new AuthResponseMessage(msgTp);
+                responseMsg = new AuthResponseMessage(msgTp);
+                responseMsg.IsSuccess = msgTp == MessageType.Auth_invalid;
+            }
+            else
+            {
+                int? id = jsonObj.GetValue<int?>("id");
+
+                responseMsg = new ResponseMessage(id, msgTp);
+
+                responseMsg.IsSuccess = jsonObj.GetValue<bool?>("success");
+
+                JObject errObj = jsonObj.GetValue<JObject>("error");
+
+                if (errObj != null)
+                {
+                    responseMsg.Error = new Error(
+                        errObj.GetValue<int>("error"),
+                        errObj.GetValue<string>("message"));
+                }
             }
 
-            int? id = jsonObj.GetValue<int?>("id");
+            responseMsg.RequestMessage = context.FindRequestMessageOrDefault(responseMsg.Id.GetValueOrDefault());
 
-            var res = new ResponseMessage(id, msgTp);
-
-            res.IsSuccess = jsonObj.GetValue<bool?>("success");
-
-            JObject errObj = jsonObj.GetValue<JObject>("error");
-
-            if (errObj != null)
+            if (responseMsg.RequestMessage?.Type == RequestMessage.MessageType.Get_states)
             {
-                res.Error = new Error(
-                    errObj.GetValue<int>("error"),
-                    errObj.GetValue<string>("message"));
-            }
-
-            res.RequestMessage = context.GetRequestMessage(id.GetValueOrDefault());
-
-            if(res.RequestMessage?.Type == RequestMessage.MessageType.Get_states)
-            {
-                res.States = jsonObj
+                responseMsg.States = jsonObj
                     .GetValue<JObject[]>("result")
                     ?.Select(state => StateResult.Parse(state))
                     .ToArray();
 
-                res.Result = res.States;
+                responseMsg.Result = responseMsg.States;
             }
-            else if(res.RequestMessage?.Type == RequestMessage.MessageType.Subscribe_events)
+            else if (responseMsg.RequestMessage?.Type == RequestMessage.MessageType.Subscribe_events)
             {
-                res.Event = EventResult.Parse(jsonObj.GetValue<JObject>("event"));
-                res.Result = res.Event;
+                responseMsg.Event = EventResult.Parse(jsonObj.GetValue<JObject>("event"));
+                responseMsg.Result = responseMsg.Event;
             }
             else
             {
-                res.Result = jsonObj.GetValue<object>("result");
+                responseMsg.Result = jsonObj.GetValue<object>("result");
             }
-            return res;
+
+            return responseMsg;
         }
 
         public MessageType Type { get; private set; }

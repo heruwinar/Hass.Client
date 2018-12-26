@@ -7,8 +7,11 @@ namespace Hass.Client.HassApi
 {
     public class AuthResponseMessage : ResponseMessage
     {
+
+        public const int DEFAULT_MESSAGEID = -11;
+
         public AuthResponseMessage(MessageType type)
-            : base(null, type)
+            : base(DEFAULT_MESSAGEID, type)
         {
         }
 

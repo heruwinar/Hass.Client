@@ -6,12 +6,18 @@ namespace Hass.Client.HassApi
 {
     public class ApiMessage
     {
+
         protected ApiMessage(int? id)
         {
             Id = id;
         }
 
-        public int? Id { get; protected set; }
+        protected int? Id { get; set; }
+
+        public virtual int? DetermineMessageId()
+        {
+            return Id;
+        }
 
     }
 }

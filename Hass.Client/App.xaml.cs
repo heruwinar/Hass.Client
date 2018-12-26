@@ -15,26 +15,15 @@ namespace Hass.Client
     {
         CancellationToken cts = new CancellationToken();
 
-        HassApi.WsAPI wsClient;
-
-        HassApi.StateResult[] states;
 
         public App()
         {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
-            ConnectToServerAsync();
         }
 
         private async void ConnectToServerAsync()
         {
-            wsClient = new HassApi.WsAPI(new Uri("ws://lockng.duckdns.org/api/websocket"), "l159456753");
-
-            await wsClient.ConnectAsync();
-
-            states = await wsClient.ListStatesAsync();
-
-            wsClient.StateChanged += OnWsClientStateChanged;
         }
 
         private void OnWsClientStateChanged(object sender, HassApi.StateChangedEventArgs e)

@@ -32,5 +32,5 @@ C:\Users\Loc\Documents\GitHub\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\V
 C:\Users\Loc\Documents\GitHub\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
 C:\Users\Loc\Documents\GitHub\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Workspaces\Hass.Client\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\WebSockets.PCL.dll
-C:\Workspaces\Hass.Client\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Workspaces\Hass.Client\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csproj.CopyComplete
+C:\Workspaces\Hass.Client\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\XamlC.stamp

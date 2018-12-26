@@ -18,7 +18,7 @@ namespace Hass.Client.HassApi
         {
             get
             {
-                return ResponseMessage.Id.GetValueOrDefault();
+                return ResponseMessage.DetermineMessageId().GetValueOrDefault();
             }
         }
 

@@ -11,6 +11,7 @@ namespace Hass.Client.HassApi
 {
     public class WsAPI
     {
+
         private event EventHandler Authenticated;
 
         public event EventHandler<ResultReceivedEventArgs> ResultReceived;
@@ -30,6 +31,12 @@ namespace Hass.Client.HassApi
             Endpoint = endpoint;
             APIPassword = apiPassword;
         }
+
+        public Uri Endpoint { get; private set; }
+
+        public string APIPassword { get; private set; }
+
+        public bool IsAuthenticated { get; private set; }
 
         public int NextId()
         {
@@ -64,32 +71,24 @@ namespace Hass.Client.HassApi
 
             ws = new MessageWebSocket();
             ws.MessageReceived += OnWsMessageReceived;
-            ws.ConnectAsync(Endpoint.ToString());
+            ws.Connect(Endpoint.ToString());
             return tcs.Task;
         }
 
-        private void OnWsMessageReceived(
-            object sender,
-            MessageWebSocketMessageReceivedEventArgs args)
+        private void OnWsMessageReceived(object sender, MessageWebSocketMessageReceivedEventArgs args)
         {
-            ProcessResponse(JObject.Parse(args.Message));
-        }
+            var response = ResponseMessage.Parse(this, JObject.Parse(args.Message));
 
-        private void ProcessResponse(JObject responseJson)
-        {
-            var response = ResponseMessage.Parse(this, responseJson);
             switch (response.Type)
             {
                 case ResponseMessage.MessageType.Auth_required:
-                    //ws.SendAsync("{\"type\": \"auth\", \"api_password\": \"l159456753\"}");
                     SendMessageAsync(RequestMessage.CreateAuthMessage(APIPassword));
                     break;
-                case ResponseMessage.MessageType.Auth_invalid:
-                    OnAuthenticated();
+                 case ResponseMessage.MessageType.Auth_ok:
+                    OnAuthenticated(true, response);
                     break;
-                case ResponseMessage.MessageType.Auth_ok:
-                    IsAuthenticated = true;
-                    OnAuthenticated();
+               case ResponseMessage.MessageType.Auth_invalid:
+                    OnAuthenticated(false, response);
                     break;
                 case ResponseMessage.MessageType.Event:
                     OnStateChanged(response.Event);
@@ -100,13 +99,8 @@ namespace Hass.Client.HassApi
             }
         }
 
-        public Uri Endpoint { get; private set; }
 
-        public string APIPassword { get; private set; }
-
-        public bool IsAuthenticated { get; private set; }
-
-        public async Task SendMessageAsync(RequestMessage message)
+        public async Task<ResponseMessage> SendMessageAsync(RequestMessage message)
         {
             int? msgId = message.Type == RequestMessage.MessageType.Auth
                 ? null
@@ -114,77 +108,52 @@ namespace Hass.Client.HassApi
 
             string json = message.BuildRequestJson(msgId);
 
-            if (msgId != null)
-            {
-                sentMessages.Add(message.Id.Value, message);
-            }
+            sentMessages.Add(message.DetermineMessageId().GetValueOrDefault(), message);
 
-            await ws.SendAsync(json);
+            ws.Send(json);
+
+            return await message.Task;
         }
 
-
-
-        public RequestMessage GetRequestMessage(int requestId)
+        public RequestMessage FindRequestMessageOrDefault(int requestId)
         {
-            if(requestId == subscribeEventMessage.Id)
+            if(requestId == subscribeEventMessage.DetermineMessageId().GetValueOrDefault())
             {
                 return subscribeEventMessage;
             }
-            RequestMessage req;
-            sentMessages.TryGetValue(requestId, out req);
-            return req;
+            RequestMessage reqMsg;
+            sentMessages.TryGetValue(requestId, out reqMsg);
+            return reqMsg;
         }
 
         public async Task<StateResult[]> ListStatesAsync()
         {
-            return await ListStatesTask();
+            ResponseMessage res = await SendMessageAsync(new RequestMessage(RequestMessage.MessageType.Get_states));
+            return res.States;
         }
 
-        public Task<StateResult[]> ListStatesTask()
+        private void OnAuthenticated(bool isAuthenticated, ResponseMessage authReponseMessage)
         {
-            TaskCompletionSource<StateResult[]> tcs = new TaskCompletionSource<StateResult[]>();
+            IsAuthenticated = isAuthenticated;
 
-            EventHandler<ResultReceivedEventArgs> handler = null;
-            handler = (s, e) =>
-            {
-                if (e.RequestMessageType == RequestMessage.MessageType.Get_states)
-                {
-                    ResultReceived -= handler;
-                    if (e.ResponseMessage.IsSuccess == true)
-                    {
-                        tcs.SetResult(e.ResponseMessage.States);
-                    }
-                    else
-                    {
-                        tcs.TrySetException(new Exception(e.ResponseMessage.Error?.ToString() ?? "An error has occured!"));
-                    }
-                }
-            };
+            OnResultReceived(authReponseMessage);
 
-            ResultReceived += handler;
-
-            SendMessageAsync(new RequestMessage(RequestMessage.MessageType.Get_states));
-
-            return tcs.Task;
-        }
-
-        private void OnAuthenticated()
-        {
-            if(IsAuthenticated)
-            {
-                SendMessageAsync(subscribeEventMessage);
-            }
             Authenticated?.Invoke(this, EventArgs.Empty);
         }
 
         private void OnResultReceived(ResponseMessage message)
         {
-            ResultReceived?.Invoke(this, new ResultReceivedEventArgs(message));
+            RequestMessage reqMsg;
 
-            if (message.Id != null && sentMessages.ContainsKey(message.Id.Value))
+            int msgId = message.DetermineMessageId().GetValueOrDefault();
+
+            if(sentMessages.TryGetValue(msgId, out reqMsg))
             {
-                sentMessages.Remove(message.Id.Value);
+                sentMessages.Remove(msgId);
+                reqMsg.Complete(message, null);
             }
+
+            ResultReceived?.Invoke(this, new ResultReceivedEventArgs(message));
         }
 
         private void OnStateChanged(EventResult eventResult)

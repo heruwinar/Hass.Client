@@ -39,10 +39,16 @@ namespace Hass.Client.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+
+                var wsClient = new HassApi.WsAPI(new Uri("ws://lockng.duckdns.org/api/websocket"), "l159456753");
+
+                await wsClient.ConnectAsync();
+
+                HassApi.StateResult[] states = await wsClient.ListStatesAsync();
+
+                foreach (var state in states)
                 {
-                    Items.Add(item);
+                    Items.Add(new Item {Id = state.EntityId, Text = state.EntityId, Description = $"{state.State} - {state.Attributes}" });
                 }
             }
             catch (Exception ex)

@@ -22,6 +22,10 @@ namespace Hass.Client.Views
         {
             InitializeComponent();
 
+            iconsPicker.ItemsSource = Controls.SvgIcon.ListAllEmbeddedSvgs();
+
+            iconsPicker.SelectedIndexChanged += (s, e) => iconCtrl.SvgResourceKey = (string)iconsPicker.SelectedItem;
+
             BindingContext = viewModel = new ItemsViewModel();
         }
 
