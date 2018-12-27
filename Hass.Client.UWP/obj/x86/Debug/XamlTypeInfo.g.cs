@@ -204,7 +204,7 @@ namespace Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[20];
+            _typeNameTable = new string[17];
             _typeNameTable[0] = "Xamarin.Forms.Platform.UWP.FormsPivot";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Pivot";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.ItemsControl";
@@ -215,18 +215,15 @@ namespace Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo
             _typeNameTable[7] = "System.Enum";
             _typeNameTable[8] = "System.ValueType";
             _typeNameTable[9] = "Object";
-            _typeNameTable[10] = "FirstFloor.XamlSpy.XamlMetadata";
-            _typeNameTable[11] = "String";
-            _typeNameTable[12] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[13] = "Xamarin.Forms.Platform.UWP.FormsCommandBar";
-            _typeNameTable[14] = "Windows.UI.Xaml.Controls.CommandBar";
-            _typeNameTable[15] = "Xamarin.Forms.Platform.UWP.WindowsPage";
-            _typeNameTable[16] = "Xamarin.Forms.Platform.UWP.WindowsBasePage";
-            _typeNameTable[17] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[18] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[19] = "Hass.Client.UWP.MainPage";
+            _typeNameTable[10] = "Xamarin.Forms.Platform.UWP.FormsCommandBar";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.CommandBar";
+            _typeNameTable[12] = "Xamarin.Forms.Platform.UWP.WindowsPage";
+            _typeNameTable[13] = "Xamarin.Forms.Platform.UWP.WindowsBasePage";
+            _typeNameTable[14] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[15] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[16] = "Hass.Client.UWP.MainPage";
 
-            _typeTable = new global::System.Type[20];
+            _typeTable = new global::System.Type[17];
             _typeTable[0] = typeof(global::Xamarin.Forms.Platform.UWP.FormsPivot);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Pivot);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.ItemsControl);
@@ -237,16 +234,13 @@ namespace Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo
             _typeTable[7] = typeof(global::System.Enum);
             _typeTable[8] = typeof(global::System.ValueType);
             _typeTable[9] = typeof(global::System.Object);
-            _typeTable[10] = typeof(global::FirstFloor.XamlSpy.XamlMetadata);
-            _typeTable[11] = typeof(global::System.String);
-            _typeTable[12] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[13] = typeof(global::Xamarin.Forms.Platform.UWP.FormsCommandBar);
-            _typeTable[14] = typeof(global::Windows.UI.Xaml.Controls.CommandBar);
-            _typeTable[15] = typeof(global::Xamarin.Forms.Platform.UWP.WindowsPage);
-            _typeTable[16] = typeof(global::Xamarin.Forms.Platform.UWP.WindowsBasePage);
-            _typeTable[17] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[18] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[19] = typeof(global::Hass.Client.UWP.MainPage);
+            _typeTable[10] = typeof(global::Xamarin.Forms.Platform.UWP.FormsCommandBar);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.CommandBar);
+            _typeTable[12] = typeof(global::Xamarin.Forms.Platform.UWP.WindowsPage);
+            _typeTable[13] = typeof(global::Xamarin.Forms.Platform.UWP.WindowsBasePage);
+            _typeTable[14] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[16] = typeof(global::Hass.Client.UWP.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -282,9 +276,9 @@ namespace Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo
         }
 
         private object Activate_0_FormsPivot() { return new global::Xamarin.Forms.Platform.UWP.FormsPivot(); }
-        private object Activate_13_FormsCommandBar() { return new global::Xamarin.Forms.Platform.UWP.FormsCommandBar(); }
-        private object Activate_15_WindowsPage() { return new global::Xamarin.Forms.Platform.UWP.WindowsPage(); }
-        private object Activate_19_MainPage() { return new global::Hass.Client.UWP.MainPage(); }
+        private object Activate_10_FormsCommandBar() { return new global::Xamarin.Forms.Platform.UWP.FormsCommandBar(); }
+        private object Activate_12_WindowsPage() { return new global::Xamarin.Forms.Platform.UWP.WindowsPage(); }
+        private object Activate_16_MainPage() { return new global::Hass.Client.UWP.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -349,54 +343,39 @@ namespace Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo
                 xamlType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 10:   //  FirstFloor.XamlSpy.XamlMetadata
-                userType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.AddMemberName("XamlSpyServiceSettings");
-                userType.AddMemberName("SourceInfo");
-                xamlType = userType;
-                break;
-
-            case 11:   //  String
-                xamlType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 12:   //  Windows.UI.Xaml.DependencyObject
-                xamlType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 13:   //  Xamarin.Forms.Platform.UWP.FormsCommandBar
+            case 10:   //  Xamarin.Forms.Platform.UWP.FormsCommandBar
                 userType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.CommandBar"));
-                userType.Activator = Activate_13_FormsCommandBar;
+                userType.Activator = Activate_10_FormsCommandBar;
                 userType.AddMemberName("IsInValidLocation");
                 xamlType = userType;
                 break;
 
-            case 14:   //  Windows.UI.Xaml.Controls.CommandBar
+            case 11:   //  Windows.UI.Xaml.Controls.CommandBar
                 xamlType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 15:   //  Xamarin.Forms.Platform.UWP.WindowsPage
+            case 12:   //  Xamarin.Forms.Platform.UWP.WindowsPage
                 userType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Xamarin.Forms.Platform.UWP.WindowsBasePage"));
-                userType.Activator = Activate_15_WindowsPage;
+                userType.Activator = Activate_12_WindowsPage;
                 xamlType = userType;
                 break;
 
-            case 16:   //  Xamarin.Forms.Platform.UWP.WindowsBasePage
+            case 13:   //  Xamarin.Forms.Platform.UWP.WindowsBasePage
                 userType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 xamlType = userType;
                 break;
 
-            case 17:   //  Windows.UI.Xaml.Controls.Page
+            case 14:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 18:   //  Windows.UI.Xaml.Controls.UserControl
+            case 15:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 19:   //  Hass.Client.UWP.MainPage
+            case 16:   //  Hass.Client.UWP.MainPage
                 userType = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Xamarin.Forms.Platform.UWP.WindowsPage"));
-                userType.Activator = Activate_19_MainPage;
+                userType.Activator = Activate_16_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -509,28 +488,12 @@ namespace Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo
             var that = (global::Xamarin.Forms.Platform.UWP.FormsPivot)instance;
             that.ToolbarPlacement = (global::Xamarin.Forms.PlatformConfiguration.WindowsSpecific.ToolbarPlacement)Value;
         }
-        private object get_5_XamlMetadata_XamlSpyServiceSettings(object instance)
-        {
-            return global::FirstFloor.XamlSpy.XamlMetadata.GetXamlSpyServiceSettings((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_5_XamlMetadata_XamlSpyServiceSettings(object instance, object Value)
-        {
-            global::FirstFloor.XamlSpy.XamlMetadata.SetXamlSpyServiceSettings((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.String)Value);
-        }
-        private object get_6_XamlMetadata_SourceInfo(object instance)
-        {
-            return global::FirstFloor.XamlSpy.XamlMetadata.GetSourceInfo((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_6_XamlMetadata_SourceInfo(object instance, object Value)
-        {
-            global::FirstFloor.XamlSpy.XamlMetadata.SetSourceInfo((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.String)Value);
-        }
-        private object get_7_FormsCommandBar_IsInValidLocation(object instance)
+        private object get_5_FormsCommandBar_IsInValidLocation(object instance)
         {
             var that = (global::Xamarin.Forms.Platform.UWP.FormsCommandBar)instance;
             return that.IsInValidLocation;
         }
-        private void set_7_FormsCommandBar_IsInValidLocation(object instance, object Value)
+        private void set_5_FormsCommandBar_IsInValidLocation(object instance, object Value)
         {
             var that = (global::Xamarin.Forms.Platform.UWP.FormsCommandBar)instance;
             that.IsInValidLocation = (global::System.Boolean)Value;
@@ -576,27 +539,11 @@ namespace Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo
                 xamlMember.Getter = get_4_FormsPivot_ToolbarPlacement;
                 xamlMember.Setter = set_4_FormsPivot_ToolbarPlacement;
                 break;
-            case "FirstFloor.XamlSpy.XamlMetadata.XamlSpyServiceSettings":
-                userType = (global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FirstFloor.XamlSpy.XamlMetadata");
-                xamlMember = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlMember(this, "XamlSpyServiceSettings", "String");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_5_XamlMetadata_XamlSpyServiceSettings;
-                xamlMember.Setter = set_5_XamlMetadata_XamlSpyServiceSettings;
-                break;
-            case "FirstFloor.XamlSpy.XamlMetadata.SourceInfo":
-                userType = (global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FirstFloor.XamlSpy.XamlMetadata");
-                xamlMember = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlMember(this, "SourceInfo", "String");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_6_XamlMetadata_SourceInfo;
-                xamlMember.Setter = set_6_XamlMetadata_SourceInfo;
-                break;
             case "Xamarin.Forms.Platform.UWP.FormsCommandBar.IsInValidLocation":
                 userType = (global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Xamarin.Forms.Platform.UWP.FormsCommandBar");
                 xamlMember = new global::Hass.Client.UWP.Hass_Client_UWP_XamlTypeInfo.XamlMember(this, "IsInValidLocation", "Boolean");
-                xamlMember.Getter = get_7_FormsCommandBar_IsInValidLocation;
-                xamlMember.Setter = set_7_FormsCommandBar_IsInValidLocation;
+                xamlMember.Getter = get_5_FormsCommandBar_IsInValidLocation;
+                xamlMember.Setter = set_5_FormsCommandBar_IsInValidLocation;
                 break;
             }
             return xamlMember;

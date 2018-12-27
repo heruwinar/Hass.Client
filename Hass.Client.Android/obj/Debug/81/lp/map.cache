@@ -1,6 +1,10 @@
 FormsViewGroup
 Hass.Client
 Newtonsoft.Json
+SkiaSharp
+SkiaSharp.Extended.Svg
+SkiaSharp.Views.Android
+SkiaSharp.Views.Forms
 System.Runtime
 Websockets.Droid
 WebSockets.PCL
@@ -28,7 +32,3 @@ Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
 netstandard
-SkiaSharp
-SkiaSharp.Views.Android
-SkiaSharp.Views.Forms
-SkiaSharp.Extended.Svg

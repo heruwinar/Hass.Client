@@ -90,6 +90,7 @@ namespace Hass.Client.Views.Controls
 
             }
         }
+
         public static string[] ListAllEmbeddedSvgs()
         {
             string rootNs = typeof(SvgIcon).Namespace + ".Svg.";
@@ -98,6 +99,7 @@ namespace Hass.Client.Views.Controls
                 .Where(resx => resx.StartsWith(rootNs))
                 .Where(resx => resx.EndsWith(".svg"))
                 .Select(resx => Path.GetFileNameWithoutExtension(resx.Substring(rootNs.Length)))
+                .OrderBy(resx => resx)
                 .ToArray();
         }
 
