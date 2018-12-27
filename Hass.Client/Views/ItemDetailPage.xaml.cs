@@ -24,11 +24,7 @@ namespace Hass.Client.Views
         {
             InitializeComponent();
 
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
+            var item = new Hass.Client.Models.Components.UnkownEntity("unknown");
 
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;

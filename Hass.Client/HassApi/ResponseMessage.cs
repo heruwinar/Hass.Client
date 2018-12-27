@@ -24,6 +24,11 @@ namespace Hass.Client.HassApi
             Type = type;
         }
 
+        public static ResponseMessage Parse(string json)
+        {
+            return Parse(null, JObject.Parse(json));
+        }
+
         public static ResponseMessage Parse(WsAPI context, JObject jsonObj)
         {
             string tp = jsonObj.GetValue<string>("type");
@@ -62,7 +67,7 @@ namespace Hass.Client.HassApi
                 }
             }
 
-            responseMsg.RequestMessage = context.FindRequestMessageOrDefault(responseMsg.Id.GetValueOrDefault());
+            responseMsg.RequestMessage = context?.FindRequestMessageOrDefault(responseMsg.Id.GetValueOrDefault());
 
             if (responseMsg.RequestMessage?.Type == RequestMessage.MessageType.Get_states)
             {

@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Hass.Client.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModel : ViewModelBase
     {
         public AboutViewModel()
         {
@@ -16,4 +16,5 @@ namespace Hass.Client.ViewModels
 
         public ICommand OpenWebCommand { get; }
     }
+
 }

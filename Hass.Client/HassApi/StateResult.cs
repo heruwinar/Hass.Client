@@ -37,5 +37,10 @@ namespace Hass.Client.HassApi
             return state;
         }
 
+        public static StateResult[] ParseStates(JObject getStatesResponse)
+        {
+            return getStatesResponse?.GetValue<JObject[]>("result").Select(state => Parse(state)).ToArray();
+        }
+
     }
 }

@@ -9,10 +9,10 @@ using Newtonsoft.Json.Linq;
 
 namespace Hass.Client.HassApi
 {
-    public class WsAPI
+    public class WsAPI : IHassAPI
     {
 
-        private event EventHandler Authenticated;
+        public event EventHandler Authenticated;
 
         public event EventHandler<ResultReceivedEventArgs> ResultReceived;
 
@@ -40,15 +40,13 @@ namespace Hass.Client.HassApi
 
         public int NextId()
         {
-            return ++currentId;
+            lock(this)
+            {
+                return ++currentId;
+            }
         }
 
         public async Task<bool> ConnectAsync()
-        {
-            return await ConnectTask();
-        }
-
-        public Task<bool> ConnectTask()
         {
             TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
 
@@ -72,22 +70,31 @@ namespace Hass.Client.HassApi
             ws = new MessageWebSocket();
             ws.MessageReceived += OnWsMessageReceived;
             ws.Connect(Endpoint.ToString());
-            return tcs.Task;
+
+            return await tcs.Task;
         }
 
         private void OnWsMessageReceived(object sender, MessageWebSocketMessageReceivedEventArgs args)
         {
-            var response = ResponseMessage.Parse(this, JObject.Parse(args.Message));
+            JObject json = JObject.Parse(args.Message);
+            var response = ResponseMessage.Parse(this, json);
 
             switch (response.Type)
             {
                 case ResponseMessage.MessageType.Auth_required:
-                    SendMessageAsync(RequestMessage.CreateAuthMessage(APIPassword));
+                    Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
+                    {
+                        SendMessageAsync(RequestMessage.CreateAuthMessage(APIPassword));
+                    });
                     break;
-                 case ResponseMessage.MessageType.Auth_ok:
+                case ResponseMessage.MessageType.Auth_ok:
+                    Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
+                    {
+                        SendMessageAsync(subscribeEventMessage);
+                    });
                     OnAuthenticated(true, response);
                     break;
-               case ResponseMessage.MessageType.Auth_invalid:
+                case ResponseMessage.MessageType.Auth_invalid:
                     OnAuthenticated(false, response);
                     break;
                 case ResponseMessage.MessageType.Event:
@@ -97,8 +104,22 @@ namespace Hass.Client.HassApi
                     OnResultReceived(response);
                     break;
             }
+
+            LogAPIReceivedMessage(response.Type, json.ToString());
         }
 
+        private void LogAPIReceivedMessage(ResponseMessage.MessageType msgType, string message)
+        {
+            string fn = $"{DateTime.Now.ToString("yyyy-MM-dd hh_mm_ss")}-{msgType}.json";
+
+            string dir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
+            if (!System.IO.Directory.Exists(dir))
+            {
+                System.IO.Directory.CreateDirectory(dir);
+            }
+            System.IO.File.WriteAllText(System.IO.Path.Combine(dir, fn), message);
+        }
 
         public async Task<ResponseMessage> SendMessageAsync(RequestMessage message)
         {
@@ -129,7 +150,7 @@ namespace Hass.Client.HassApi
         public async Task<StateResult[]> ListStatesAsync()
         {
             ResponseMessage res = await SendMessageAsync(new RequestMessage(RequestMessage.MessageType.Get_states));
-            return res.States;
+            return res.States.OrderBy(st => st.EntityId).ToArray();
         }
 
         private void OnAuthenticated(bool isAuthenticated, ResponseMessage authReponseMessage)
@@ -161,6 +182,7 @@ namespace Hass.Client.HassApi
             StateChanged?.Invoke(this, new StateChangedEventArgs(eventResult));
 
         }
+
 
     }
 }

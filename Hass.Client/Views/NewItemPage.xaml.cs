@@ -5,23 +5,20 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Hass.Client.Models;
+using Hass.Client.Models.Components;
 
 namespace Hass.Client.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public IComponent Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
-            {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
+            Item = new UnkownEntity("unkown");
 
             BindingContext = this;
         }

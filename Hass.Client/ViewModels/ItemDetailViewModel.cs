@@ -4,12 +4,13 @@ using Hass.Client.Models;
 
 namespace Hass.Client.ViewModels
 {
-    public class ItemDetailViewModel : BaseViewModel
+    public class ItemDetailViewModel : ViewModelBase
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public IComponent Item { get; set; }
+
+        public ItemDetailViewModel(IComponent item = null)
         {
-            Title = item?.Text;
+            Title = item?.Platform.ToString();
             Item = item;
         }
     }
