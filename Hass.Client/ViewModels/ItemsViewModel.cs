@@ -47,6 +47,7 @@ namespace Hass.Client.ViewModels
                     items.Add(c);
                 }
                 Items = items;
+                System.Threading.Thread.Sleep(1000);
                 Device.BeginInvokeOnMainThread(()=>OnPropertyChanged(nameof(Items)));
             }
             catch (Exception ex)

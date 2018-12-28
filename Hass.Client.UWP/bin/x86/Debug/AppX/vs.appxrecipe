@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-28T05:12:45.228</Modified>
+      <Modified>2018-12-28T05:56:38.697</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Hass.Client.UWP.exe">
       <PackagePath>entrypoint\Hass.Client.UWP.exe</PackagePath>
-      <Modified>2018-12-28T05:12:44.604</Modified>
+      <Modified>2018-12-28T05:56:38.066</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Loc\.nuget\packages\newtonsoft.json\12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -748,7 +748,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.dll">
       <PackagePath>Hass.Client.dll</PackagePath>
-      <Modified>2018-12-28T05:12:39.173</Modified>
+      <Modified>2018-12-28T05:56:32.689</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Workspaces\Hass.Client\LocalPackages\websockets.pcl\1.1.9\lib\uap10.0\WebSockets.PCL.dll">
       <PackagePath>WebSockets.PCL.dll</PackagePath>
@@ -911,11 +911,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-12-28T05:12:44.440</Modified>
+      <Modified>2018-12-28T05:56:37.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-12-28T05:12:44.440</Modified>
+      <Modified>2018-12-28T05:56:37.887</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -931,7 +931,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Core\Hass.Client.UWP.exe">
       <PackagePath>Hass.Client.UWP.exe</PackagePath>
-      <Modified>2018-12-28T05:12:45.224</Modified>
+      <Modified>2018-12-28T05:56:38.691</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

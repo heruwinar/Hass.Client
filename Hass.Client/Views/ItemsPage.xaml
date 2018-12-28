@@ -16,44 +16,54 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Picker x:Name="iconsPicker" WidthRequest="200"/>
-                <controls:SvgIcon x:Name="iconCtrl" BackgroundColor="White"/>
-            </StackLayout>
-            <ScrollView>
-                <layouts:WrapLayout ItemsSource="{Binding Items}">
-                    <layouts:WrapLayout.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout Padding="10" WidthRequest="120">
-                                <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                            </StackLayout>
-                        </DataTemplate>
-                    </layouts:WrapLayout.ItemTemplate>
-                </layouts:WrapLayout>
-            </ScrollView>
-            <!--<ListView x:Name="ItemsListView" 
-                 ItemsSource="{Binding Items}"
-                 VerticalOptions="FillAndExpand"
-                 HasUnevenRows="true"
-                 RefreshCommand="{Binding LoadItemsCommand}"
-                 IsPullToRefreshEnabled="true"
-                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                 CachingStrategy="RecycleElement"
-                 ItemSelected="OnItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
+        <Grid>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Picker x:Name="iconsPicker" WidthRequest="200"/>
+                    <controls:SvgIcon x:Name="iconCtrl" BackgroundColor="White"/>
+                </StackLayout>
             
-        </StackLayout>
+                <ScrollView>
+                    <controls:ItemsView ItemsSource="{Binding Items}">
+                        <controls:ItemsView.Layout>
+                            <FlexLayout Direction="Row" Wrap="Wrap" />
+                        </controls:ItemsView.Layout>
+                        <controls:ItemsView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="10" FlexLayout.Grow="1.5" FlexLayout.Basis="120">
+                                    <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                    <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </controls:ItemsView.ItemTemplate>
+                    </controls:ItemsView>
+                </ScrollView>
+                <!--<ListView x:Name="ItemsListView" 
+                     ItemsSource="{Binding Items}"
+                     VerticalOptions="FillAndExpand"
+                     HasUnevenRows="true"
+                     RefreshCommand="{Binding LoadItemsCommand}"
+                     IsPullToRefreshEnabled="true"
+                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                     CachingStrategy="RecycleElement"
+                     ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                    <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+            
+            </StackLayout>
+            <ActivityIndicator x:Name="activityIndicator"
+                           IsRunning="{Binding IsBusy}"
+                           VerticalOptions="Center" />
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
