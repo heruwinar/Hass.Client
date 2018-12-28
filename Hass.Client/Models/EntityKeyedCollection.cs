@@ -23,6 +23,10 @@ namespace Hass.Client.Models
 
         public IComponent FindByIdOrDefault(string entityid)
         {
+            if(Dictionary == null)
+            {
+                return null;
+            }
             IComponent res;
             Dictionary.TryGetValue(entityid, out res);
             return res;

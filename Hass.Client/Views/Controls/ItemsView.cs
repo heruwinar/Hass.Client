@@ -10,6 +10,50 @@ namespace Hass.Client.Views.Controls
     public class ItemsView : ContentView
     {
 
+        class DefaultTemplateSelector: IDataTemplateSelector
+        {
+            private ItemsView owner;
+
+            public DefaultTemplateSelector(ItemsView owner)
+            {
+                this.owner = owner;
+            }
+
+            public DataTemplate SelectTemplate(object item, BindableObject container)
+            {
+                string key = item.GetType().FullName;
+                object resx;
+                if (owner.Resources.TryGetValue(key, out resx))
+                {
+                    return resx as DataTemplate;
+                }
+
+                resx = FindResource(owner.Parent as VisualElement, key);
+                owner.Resources[key] = resx;
+
+                return FindResource(owner, item.GetType().FullName) as DataTemplate;
+            }
+
+            private object FindResource(VisualElement el, string resxKey)
+            {
+                if(el == null)
+                {
+                    return null;
+                }
+                object resx;
+                if (el.Resources.TryGetValue(resxKey, out resx))
+                {
+                    if(el != owner)
+                    {
+                        owner.Resources[resxKey] = resx;
+                    }
+                    return resx;
+                }
+                return FindResource(el.Parent as VisualElement, resxKey);
+            }
+        }
+
+
         public static readonly BindableProperty LayoutProperty = BindableProperty.Create(
             "Layout",
             typeof(Layout<View>),
@@ -30,18 +74,38 @@ namespace Hass.Client.Views.Controls
             "ItemTemplate",
             typeof(DataTemplate),
             typeof(ItemsView),
-            propertyChanged: (bindable, oldvalue, newvalue) =>((ItemsView)bindable).RebuildChildren());
+            propertyChanged: (bindable, oldvalue, newvalue) => ((ItemsView)bindable).RebuildChildren());
 
         public static readonly BindableProperty ItemTemplateSelectorProperty = BindableProperty.Create(
             "ItemTemplateSelector",
-            typeof(DataTemplateSelector),
+            typeof(IDataTemplateSelector),
             typeof(ItemsView),
-            propertyChanged: (bindable, oldvalue, newvalue) =>((ItemsView)bindable).RebuildChildren());
+            propertyChanged: (bindable, oldvalue, newvalue) => ((ItemsView)bindable).RebuildChildren());
 
+
+        public static readonly BindableProperty ItemContainerStyleProperty = BindableProperty.Create(
+            "ItemContainerStyle",
+            typeof(Style),
+            typeof(ItemsView),
+            propertyChanged: (bindable, oldvalue, newvalue) => ((ItemsView)bindable).OnItemContainerStyleChanged());
+
+
+        private TapGestureRecognizer tabGestureRecognizer;
 
         public ItemsView()
         {
             Layout = new StackLayout();
+            tabGestureRecognizer = new TapGestureRecognizer();
+            tabGestureRecognizer.Tapped += OnTapped;
+        }
+
+        private void OnTapped(object sender, EventArgs e)
+        {
+            var itemCtrl = sender as ItemContainer;
+            if(itemCtrl != null)
+            {
+                itemCtrl.IsSelected = true;
+            }
         }
 
         public IEnumerable ItemsSource
@@ -62,16 +126,22 @@ namespace Hass.Client.Views.Controls
             set { SetValue(ItemTemplateProperty, value); }
         }
 
-        public DataTemplateSelector ItemTemplateSelector
+        public IDataTemplateSelector ItemTemplateSelector
         {
-            get { return (DataTemplateSelector)GetValue(ItemTemplateSelectorProperty); }
+            get { return (IDataTemplateSelector)GetValue(ItemTemplateSelectorProperty); }
             set { SetValue(ItemTemplateSelectorProperty, value); }
+        }
+
+        public Style ItemContainerStyle
+        {
+            get { return (Style)GetValue(ItemContainerStyleProperty); }
+            set { SetValue(ItemContainerStyleProperty, value); }
         }
 
         private void OnLayoutChanged(Layout<View> oldValue, Layout<View> newValue)
         {
             Content = null;
-            if(oldValue != null)
+            if (oldValue != null)
             {
                 oldValue.Children.Clear();
             }
@@ -79,9 +149,22 @@ namespace Hass.Client.Views.Controls
             RebuildChildren();
         }
 
+        private void OnItemContainerStyleChanged()
+        {
+            IList<View> children = Layout?.Children;
+            if(children != null)
+            {
+                Style style = ItemContainerStyle;
+                foreach(ItemContainer cnt in children)
+                {
+                    cnt.Style = style;
+                }
+            }
+        }
+
         private void RebuildChildren()
         {
-            if(Layout != null)
+            if (Layout != null)
             {
                 Layout.Children.Clear();
                 BuildChildren(ItemsSource, 0);
@@ -91,24 +174,33 @@ namespace Hass.Client.Views.Controls
         private void BuildChildren(IEnumerable items, int startingIndex)
         {
             IList<View> children = Layout?.Children;
-            
-            if(children != null && items != null)
+
+
+            if (children == null || items == null)
             {
-                DataTemplateSelector templateSel = ItemTemplateSelector;
-                if (templateSel != null)
+                return;
+            }
+
+
+            IDataTemplateSelector templateSel = ItemTemplateSelector;
+            if(templateSel == null && ItemTemplate == null)
+            {
+                templateSel = new DefaultTemplateSelector(this);
+            }
+
+            if (templateSel != null)
+            {
+                foreach (object item in ItemsSource)
                 {
-                    foreach (object item in ItemsSource)
-                    {
-                        children.Insert(startingIndex++, CreateItemView(item, templateSel.SelectTemplate(item, this)));
-                    }
+                    children.Insert(startingIndex++, CreateItemView(item, templateSel.SelectTemplate(item, this)));
                 }
-                else
+            }
+            else
+            {
+                DataTemplate template = ItemTemplate;
+                foreach (object item in ItemsSource)
                 {
-                    DataTemplate template = ItemTemplate;
-                    foreach (object item in ItemsSource)
-                    {
-                        children.Insert(startingIndex++, CreateItemView(item, template));
-                    }
+                    children.Insert(startingIndex++, CreateItemView(item, template));
                 }
             }
         }
@@ -117,9 +209,9 @@ namespace Hass.Client.Views.Controls
         {
             Action<INotifyCollectionChanged, bool> installEvtHandler = (col, install) =>
             {
-                if(col != null)
+                if (col != null)
                 {
-                    if(install)
+                    if (install)
                     {
                         col.CollectionChanged += OnItemsSourceCollectionChanged;
                     }
@@ -137,7 +229,7 @@ namespace Hass.Client.Views.Controls
         private void OnItemsSourceCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             IList<View> children = Layout?.Children;
-            if(children == null)
+            if (children == null)
             {
                 return;
             }
@@ -160,19 +252,63 @@ namespace Hass.Client.Views.Controls
             }
         }
 
+        private ItemContainer currentSelected;
+
+        public void ProcessItemIsSelectedChanged(ItemContainer itemContainer)
+        {
+            if(itemContainer.IsSelected && itemContainer != currentSelected)
+            {
+                if(currentSelected?.IsSelected == true)
+                {
+                    currentSelected.IsSelected = false;
+                }
+                currentSelected = itemContainer;
+            }
+        }
+
         private View CreateItemView(object item, DataTemplate itemTemplate)
         {
-            View itemView;
-            
-            if(itemTemplate == null)
+            ItemContainer itemView = new ItemContainer(this) {
+                BindingContext = item,
+                Style = ItemContainerStyle,
+            };
+
+            itemView.GestureRecognizers.Add(tabGestureRecognizer);
+
+            if (itemTemplate == null)
             {
-                itemView = new Label() { Text = item.ToString() };                
+                itemView.Content = new Label() { Text = item.ToString() };
             }
             else
             {
-                itemView = (View)itemTemplate.CreateContent();
+                View v = (View)itemTemplate.CreateContent();
+                FlexBasis basis = FlexLayout.GetBasis(v);
+                if (basis.Length > 0)
+                {
+                    FlexLayout.SetBasis(itemView, basis);
+                }
+                FlexAlignSelf alignSelf = FlexLayout.GetAlignSelf(v);
+                if (alignSelf != FlexAlignSelf.Auto)
+                {
+                    FlexLayout.SetAlignSelf(itemView, alignSelf);
+                }
+                float grow = FlexLayout.GetGrow(v);
+                if (grow > 0)
+                {
+                    FlexLayout.SetGrow(itemView, grow);
+                }
+                float shrink = FlexLayout.GetShrink(v);
+                if (shrink > 0)
+                {
+                    FlexLayout.SetShrink(itemView, shrink);
+                }
+                int order = FlexLayout.GetOrder(v);
+                if (order > 0)
+                {
+                    FlexLayout.SetOrder(itemView, order);
+                }
+                itemView.Content = v;
             }
-            itemView.BindingContext = item;
             return itemView;
         }
 

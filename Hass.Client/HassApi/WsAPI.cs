@@ -11,6 +11,7 @@ namespace Hass.Client.HassApi
 {
     public class WsAPI : IHassAPI
     {
+        public static IHassAPI Instance { get; set; }
 
         public event EventHandler Authenticated;
 
@@ -77,21 +78,26 @@ namespace Hass.Client.HassApi
         private void OnWsMessageReceived(object sender, MessageWebSocketMessageReceivedEventArgs args)
         {
             JObject json = JObject.Parse(args.Message);
+
             var response = ResponseMessage.Parse(this, json);
 
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
+            {
+                ProcessResponseMessage(response, json);
+            });
+
+            LogAPIReceivedMessage(response.Type, json.ToString());
+        }
+
+        private void ProcessResponseMessage(ResponseMessage response, JObject json)
+        {
             switch (response.Type)
             {
                 case ResponseMessage.MessageType.Auth_required:
-                    Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
-                    {
-                        SendMessageAsync(RequestMessage.CreateAuthMessage(APIPassword));
-                    });
+                    SendMessageAsync(RequestMessage.CreateAuthMessage(APIPassword));
                     break;
                 case ResponseMessage.MessageType.Auth_ok:
-                    Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
-                    {
-                        SendMessageAsync(subscribeEventMessage);
-                    });
+                    SendMessageAsync(subscribeEventMessage);
                     OnAuthenticated(true, response);
                     break;
                 case ResponseMessage.MessageType.Auth_invalid:
@@ -104,8 +110,6 @@ namespace Hass.Client.HassApi
                     OnResultReceived(response);
                     break;
             }
-
-            LogAPIReceivedMessage(response.Type, json.ToString());
         }
 
         private void LogAPIReceivedMessage(ResponseMessage.MessageType msgType, string message)

@@ -940,6 +940,9 @@ C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\AppxManifest.xml
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Core\AppxManifest.xml
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Core\Hass.Client.UWP.exe
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Hass.Client.UWP.build.appxrecipe
+C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Castle.Core.dll
+C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Moq.dll
+C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Moq.pdb
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Newtonsoft.Json.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Newtonsoft.Json.pdb
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\clrcompression.dll
@@ -1080,7 +1083,6 @@ C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Text.Encoding.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Text.RegularExpressions.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Threading.Overlapped.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Threading.Tasks.Dataflow.dll
-C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Threading.Tasks.Extensions.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Threading.Tasks.Parallel.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Threading.Tasks.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Threading.Thread.dll
@@ -1114,13 +1116,17 @@ C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.Extended.Svg.d
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.Views.Interop.UWP.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.Views.UWP.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\SkiaSharp.Views.Forms.dll
+C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\System.Threading.Tasks.Extensions.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Xamarin.Forms.Core.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Xamarin.Forms.Platform.UAP.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Xamarin.Forms.Platform.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Xamarin.Forms.Xaml.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Hass.Client.dll
+C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Hass.Client.Mock.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\WebSockets.PCL.dll
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Websockets.Universal.dll
+C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Hass.Client.Mock.pdb
 C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Hass.Client.pdb
 C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\Hass.Client.UWP.csprojAssemblyReference.cache
 C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\App.g.i.cs
@@ -1139,6 +1145,7 @@ C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\Hass.Client.UWP.csproj.C
 C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\Hass.Client.UWP.exe
 C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\Hass.Client.UWP.pdb
 C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\ResourceHandlingTask.state
+C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\Moq\en-US\Moq.Properties.Resources.resw
 C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\FxResources.Microsoft.CSharp.SR.resw
 C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\FxResources.Microsoft.VisualBasic.SR.resw
 C:\Workspaces\Hass.Client\Hass.Client.UWP\obj\x86\Debug\FxResources.System.Collections.Concurrent.SR.resw

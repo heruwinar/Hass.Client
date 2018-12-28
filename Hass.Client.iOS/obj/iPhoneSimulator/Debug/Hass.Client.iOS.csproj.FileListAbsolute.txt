@@ -74,3 +74,13 @@ D:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\ta
 D:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\xamarin_logo.png
 D:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\xamarin_logo@2x.png
 D:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\xamarin_logo@3x.png
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\actool\_PartialAppManifest.items
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\actool\_BundleResourceWithLogicalName.items
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.csprojAssemblyReference.cache
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.csproj.CoreCompileInputs.cache
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.exe
+C:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.pdb

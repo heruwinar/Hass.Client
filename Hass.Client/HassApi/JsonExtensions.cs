@@ -7,6 +7,18 @@ namespace Hass.Client.HassApi
 {
     public static class JsonExtensions
     {
+
+        public static T GetPathedValue<T>(this JObject obj, string path)
+        {
+            string[] keys = path.Split(new char[] {'.'});
+            JObject val = obj;
+            for(int i = 0; i < keys.Length-1; i++)
+            {
+                val = val.GetValue<JObject>(keys[i]);
+            }
+            return GetValue<T>(val, keys[keys.Length-1]);
+        }
+
         public static T GetValue<T>(this JObject obj, string key)
         {
             if(obj == null)

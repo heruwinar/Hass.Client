@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Threading;
 using System.Net.WebSockets;
+using Xamarin.Forms;
+using SkiaSharp;
 
 namespace Hass.Client.Util
 {

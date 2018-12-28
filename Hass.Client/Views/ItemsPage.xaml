@@ -3,9 +3,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hass.Client.Views.ItemsPage"
              xmlns:controls="clr-namespace:Hass.Client.Views.Controls"
-             xmlns:layouts="clr-namespace:Hass.Client.Views.Layouts"
+             xmlns:components="clr-namespace:Hass.Client.Models.Components"
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
+    
+    <ContentPage.Resources>
+        <Style x:Key="ItemContainnerStyle" TargetType="{x:Type controls:ItemContainer}">
+            <Setter Property="FlexLayout.Basis" Value="120" />
+            <Setter Property="FlexLayout.Grow" Value="10" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="FlexLayout.HeightRequest" Value="100" />
+            <Setter Property="BackgroundColor" Value="AliceBlue" />
+            <Setter Property="IsTabStop" Value="true" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="BorderColor" Value="LightGray" />
+            <Setter Property="WidthRequest" Value="400" />
+            <Setter Property="Padding" Value="4" />
+            <Style.Triggers>
+                <Trigger TargetType="controls:ItemContainer" Property="IsSelected" Value="True">
+                    <Setter Property="BackgroundColor" Value="Beige" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <controls:ByTypeDataTemplateSelector x:Key="componentTemplateSelector">
+            <controls:TemplateEntry Type="{x:Type components:AlarmControlPanel}">
+                <DataTemplate>
+                    <StackLayout FlexLayout.Basis="300" FlexLayout.Shrink="1" MinimumWidthRequest="300"> 
+                        <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                        <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                        <Button Text="Click Me" />
+                    </StackLayout>
+                </DataTemplate>
+            </controls:TemplateEntry>
+            <controls:ByTypeDataTemplateSelector.DefaultTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="6*"/>
+                            <RowDefinition Height="4*" />
+                        </Grid.RowDefinitions>
+                        <controls:Circle Grid.Row="0" StrokeColor="Orange" StrokeWidth="2"/>
+                        <Label Grid.Row="0" Text="{Binding State}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12" FontFamily="Tahoma"/>
+                        <Label Grid.Row="1" Text="{Binding FriendlyName}" HorizontalOptions="Center" VerticalOptions="Start" FontSize="10" FontFamily="Tahoma" HorizontalTextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </controls:ByTypeDataTemplateSelector.DefaultTemplate>
+        </controls:ByTypeDataTemplateSelector>
+    </ContentPage.Resources>
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
@@ -24,18 +70,12 @@
                 </StackLayout>
             
                 <ScrollView>
-                    <controls:ItemsView ItemsSource="{Binding Items}">
+                    <controls:ItemsView ItemsSource="{Binding Items}" 
+                                        ItemTemplateSelector="{StaticResource componentTemplateSelector}"
+                                        ItemContainerStyle="{StaticResource ItemContainnerStyle}">
                         <controls:ItemsView.Layout>
-                            <FlexLayout Direction="Row" Wrap="Wrap" />
+                            <FlexLayout Direction="Row" Wrap="Wrap"  />
                         </controls:ItemsView.Layout>
-                        <controls:ItemsView.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout Padding="10" FlexLayout.Grow="1.5" FlexLayout.Basis="120">
-                                    <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                    <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                                </StackLayout>
-                            </DataTemplate>
-                        </controls:ItemsView.ItemTemplate>
                     </controls:ItemsView>
                 </ScrollView>
                 <!--<ListView x:Name="ItemsListView" 

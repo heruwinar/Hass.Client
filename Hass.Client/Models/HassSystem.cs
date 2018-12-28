@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Hass.Client.HassApi;
 using Hass.Client.Models.Components;
+using Xamarin.Forms;
 
 namespace Hass.Client.Models
 {
@@ -12,25 +13,20 @@ namespace Hass.Client.Models
     public class HassSystem : ModelBase
     {
 
-        private EntityKeyedCollection allEntities;
+        private EntityKeyedCollection allEntities = new EntityKeyedCollection();
 
-        public HassSystem(IHassAPI hassAPI = null)
+
+        public HassSystem()
         {
-            SetHassAPI(hassAPI);
+            SetHassAPI(WsAPI.Instance);
         }
 
         private void OnHassApiStateChanged(object sender, StateChangedEventArgs e)
         {
-            string entityId = e.Event.Data.EntityId;
+            IComponent component = BuildEntitiesFromStateResults(new[] { e.Event.Data.NewState }).First();
 
-            IComponent component = allEntities.FindByIdOrDefault(entityId);
-            if (component != null)
+            if(!allEntities.Contains(component.EntityId))
             {
-                component.Initialize(e.Event.Data.NewState);
-            }
-            else
-            {
-                component = BuildEntitiesFromStateResults(new[] { e.Event.Data.NewState }).First();
                 allEntities.Add(component);
             }
         }
@@ -88,7 +84,7 @@ namespace Hass.Client.Models
 
             allEntities = new EntityKeyedCollection(BuildEntitiesFromStateResults(states));
 
-            OnPropertyChanged(nameof(AllEntities));
+            Device.BeginInvokeOnMainThread(() => OnPropertyChanged(nameof(AllEntities)));
         }
 
         private IEnumerable<IComponent> BuildEntitiesFromStateResults(StateResult[] states)
@@ -104,13 +100,18 @@ namespace Hass.Client.Models
                 string entityType = $"{typeof(HassSystem).Namespace}.Components.{platform}";
 
                 Type tp = typeof(HassSystem).Assembly.GetType(entityType, false, true) ?? typeof(UnkownEntity);
+
                 foreach (StateResult st in grp)
                 {
-                    var entity = (IComponent)Activator.CreateInstance(tp, new object[] { st.EntityId });
+                    IComponent component = allEntities.FindByIdOrDefault(st.EntityId);
+                    if (component == null)
+                    {
+                        component = (IComponent)Activator.CreateInstance(tp, new object[] { st.EntityId });
+                    }
 
-                    entity.Initialize(st);
+                    component.Initialize(st);
 
-                    yield return entity;
+                    yield return component;
                 }
             }
         }

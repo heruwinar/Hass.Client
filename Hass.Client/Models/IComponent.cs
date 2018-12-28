@@ -10,6 +10,10 @@ namespace Hass.Client.Models
     {
         string EntityId { get; }
 
+        string ContextId { get; }
+
+        string FriendlyName { get; }
+
         PlatformTypeEnum Platform { get; }
 
         object State { get; }

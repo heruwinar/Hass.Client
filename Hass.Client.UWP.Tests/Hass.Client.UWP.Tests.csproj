@@ -95,7 +95,6 @@
     <SDKReference Include="TestPlatform.Universal, Version=$(UnitTestPlatformVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\MockDataLoader.cs" />
     <Compile Include="Models\HassSystemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTestApp.xaml.cs">
@@ -113,7 +112,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <EmbeddedResource Include="Data\Hass.Client\HassApi\WsAPI\ListStatesAsync.json" />
     <None Include="Hass.Client.UWP.Tests_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +139,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Hass.Client.Mock\Hass.Client.Mock.csproj">
+      <Project>{1200841f-bd77-4358-b9be-dfa535e32ac1}</Project>
+      <Name>Hass.Client.Mock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hass.Client\Hass.Client.csproj">
       <Project>{ea3696c3-90e9-49b2-ada6-94e09122c317}</Project>
       <Name>Hass.Client</Name>

@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using Svg = SkiaSharp.Extended.Svg;
+using Hass.Client.Util;
 
 namespace Hass.Client.Views.Controls
 {
@@ -69,11 +70,7 @@ namespace Hass.Client.Views.Controls
             var canvas = e.Surface.Canvas;
             if(BackgroundColor.A > 0.1)
             {
-                canvas.Clear(new SKColor(
-                    (byte)(255* BackgroundColor.R), 
-                    (byte)(255 * BackgroundColor.G), 
-                    (byte)(255 * BackgroundColor.B), 
-                    (byte)(255 * BackgroundColor.A)));
+                canvas.Clear(BackgroundColor.ToSKColor());
             }
             
             if(picture != null)

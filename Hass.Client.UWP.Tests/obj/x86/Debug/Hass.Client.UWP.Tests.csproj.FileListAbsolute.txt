@@ -156,3 +156,5 @@ D:\Workspaces\Hass.Client\Hass.Client.UWP.Tests\obj\x86\Debug\resources.en.resfi
 D:\Workspaces\Hass.Client\Hass.Client.UWP.Tests\obj\x86\Debug\resources.en.resfiles.intermediate
 D:\Workspaces\Hass.Client\Hass.Client.UWP.Tests\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 D:\Workspaces\Hass.Client\Hass.Client.UWP.Tests\obj\x86\Debug\ProjectArchitectures.txt
+C:\Workspaces\Hass.Client\Hass.Client.UWP.Tests\bin\x86\Debug\Hass.Client.Mock.dll
+C:\Workspaces\Hass.Client\Hass.Client.UWP.Tests\bin\x86\Debug\Hass.Client.Mock.pdb

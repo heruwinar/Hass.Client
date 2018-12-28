@@ -51,6 +51,7 @@ D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\XamlC.stamp
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csproj.CopyComplete
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.dll
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.pdb
+D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache
 C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.deps.json
 C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.dll
 C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.pdb
@@ -69,4 +70,3 @@ C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.cspro
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.dll
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.pdb
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache
-D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache
