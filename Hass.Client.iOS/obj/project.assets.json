@@ -1034,7 +1034,7 @@
       ]
     },
     "Xamarin.Forms/3.4.0.1008975": {
-      "sha512": "tM9syeev45u92OFENGjq+Zw8WiEwLJFiXe317XpL9SY2RRk9sm2fc1lDVjzwz0da+5ZP5fi24NAPsPQdxBdMwQ==",
+      "sha512": "036/h8HtzRFgTrfhY57IeHoYRsPTO2XTA6uUFdmZzw2QR1sdszfofhI9HrCJTRx6fCzmjPg5Cxk5chYrjKarNw==",
       "type": "package",
       "path": "xamarin.forms/3.4.0.1008975",
       "files": [
@@ -1086,6 +1086,7 @@
         "lib/Xamarin.iOS10/Xamarin.Forms.Core.xml",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll.mdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.pdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.pdb",
@@ -1197,20 +1198,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nguyenl\\.nuget\\packages\\": {}
+    "C:\\Users\\Loc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Workspaces\\Hass.Client\\Hass.Client.iOS\\Hass.Client.iOS.csproj",
+      "projectUniqueName": "D:\\Workspaces\\Hass.Client\\Hass.Client.iOS\\Hass.Client.iOS.csproj",
       "projectName": "Hass.Client.iOS",
-      "projectPath": "C:\\Workspaces\\Hass.Client\\Hass.Client.iOS\\Hass.Client.iOS.csproj",
-      "packagesPath": "C:\\Users\\nguyenl\\.nuget\\packages\\",
-      "outputPath": "C:\\Workspaces\\Hass.Client\\Hass.Client.iOS\\obj\\",
+      "projectPath": "D:\\Workspaces\\Hass.Client\\Hass.Client.iOS\\Hass.Client.iOS.csproj",
+      "packagesPath": "C:\\Users\\Loc\\.nuget\\packages\\",
+      "outputPath": "D:\\Workspaces\\Hass.Client\\Hass.Client.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\nguyenl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Loc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1223,8 +1224,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client.csproj": {
-              "projectPath": "C:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client.csproj"
+            "D:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client.csproj": {
+              "projectPath": "D:\\Workspaces\\Hass.Client\\Hass.Client\\Hass.Client.csproj"
             }
           }
         }

@@ -38,7 +38,6 @@ D:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.deps.
 D:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.dll
 D:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.pdb
 D:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\WebSockets.PCL.dll
-D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
@@ -70,3 +69,4 @@ C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.cspro
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.dll
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.pdb
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache
+D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache

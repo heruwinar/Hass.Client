@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hass.Client.Views.ItemsPage"
              xmlns:controls="clr-namespace:Hass.Client.Views.Controls"
+             xmlns:layouts="clr-namespace:Hass.Client.Views.Layouts"
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
@@ -20,9 +21,21 @@
                 <Picker x:Name="iconsPicker" WidthRequest="200"/>
                 <controls:SvgIcon x:Name="iconCtrl" BackgroundColor="White"/>
             </StackLayout>
-            <ListView x:Name="ItemsListView" 
-                ItemsSource="{Binding Items}"
-                VerticalOptions="FillAndExpand"
+            <ScrollView>
+                <layouts:WrapLayout ItemsSource="{Binding Items}">
+                    <layouts:WrapLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10" WidthRequest="120">
+                                <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </layouts:WrapLayout.ItemTemplate>
+                </layouts:WrapLayout>
+            </ScrollView>
+            <!--<ListView x:Name="ItemsListView" 
+                 ItemsSource="{Binding Items}"
+                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
                  RefreshCommand="{Binding LoadItemsCommand}"
                  IsPullToRefreshEnabled="true"
@@ -39,7 +52,8 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -306,7 +306,5 @@ D:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\android\assets\System
 D:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\android\assets\Xamarin.Forms.Core.pdb
 D:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 D:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
-D:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.dll
 D:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\linksrc\Hass.Client.Android.pdb
-D:\Workspaces\Hass.Client\Hass.Client.Android\bin\Debug\Hass.Client.dll.mdb
 D:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\linksrc\Hass.Client.dll.mdb

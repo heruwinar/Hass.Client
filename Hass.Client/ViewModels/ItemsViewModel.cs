@@ -27,6 +27,7 @@ namespace Hass.Client.ViewModels
             MessagingCenter.Subscribe<NewItemPage, IComponent>(this, "AddItem",  (obj, item) =>
             {
             });
+            ExecuteLoadItemsCommand();
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -40,10 +41,13 @@ namespace Hass.Client.ViewModels
             {
                 Items.Clear();
                 await hass.Initialize();
-                foreach(IComponent c in hass.AllEntities)
+                var items = new ObservableCollection<IComponent>();
+                foreach (IComponent c in hass.AllEntities)
                 {
-                    Items.Add(c);
+                    items.Add(c);
                 }
+                Items = items;
+                Device.BeginInvokeOnMainThread(()=>OnPropertyChanged(nameof(Items)));
             }
             catch (Exception ex)
             {
