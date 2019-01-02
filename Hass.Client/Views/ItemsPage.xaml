@@ -9,11 +9,11 @@
     
     <ContentPage.Resources>
         <Style x:Key="ItemContainnerStyle" TargetType="{x:Type controls:ItemContainer}">
-            <Setter Property="FlexLayout.Basis" Value="120" />
+            <!--<Setter Property="FlexLayout.Basis" Value="120" />
             <Setter Property="FlexLayout.Grow" Value="10" />
-            <Setter Property="Margin" Value="4" />
-            <Setter Property="FlexLayout.HeightRequest" Value="100" />
+            <Setter Property="FlexLayout.HeightRequest" Value="100" />-->
             <Setter Property="BackgroundColor" Value="AliceBlue" />
+            <Setter Property="Margin" Value="4" />
             <Setter Property="IsTabStop" Value="true" />
             <Setter Property="CornerRadius" Value="4" />
             <Setter Property="BorderColor" Value="LightGray" />
@@ -29,7 +29,25 @@
         <controls:ByTypeDataTemplateSelector x:Key="componentTemplateSelector">
             <controls:TemplateEntry Type="{x:Type components:AlarmControlPanel}">
                 <DataTemplate>
-                    <StackLayout FlexLayout.Basis="300" FlexLayout.Shrink="1" MinimumWidthRequest="300"> 
+                    <StackLayout controls:GridWrapLayout.ColumnSpan="2" controls:GridWrapLayout.RowSpan="2">
+                        <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                        <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                        <Button Text="Click Me" />
+                    </StackLayout>
+                </DataTemplate>
+            </controls:TemplateEntry>
+            <controls:TemplateEntry Type="{x:Type components:Sensor}">
+                <DataTemplate>
+                    <StackLayout controls:GridWrapLayout.ColumnSpan="1" controls:GridWrapLayout.RowSpan="2">
+                        <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                        <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                        <Button Text="Click Me" />
+                    </StackLayout>
+                </DataTemplate>
+            </controls:TemplateEntry>
+            <controls:TemplateEntry Type="{x:Type components:BinarySensor}">
+                <DataTemplate>
+                    <StackLayout controls:GridWrapLayout.ColumnSpan="2" controls:GridWrapLayout.RowSpan="1">
                         <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
                         <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                         <Button Text="Click Me" />
@@ -68,37 +86,16 @@
                     <Picker x:Name="iconsPicker" WidthRequest="200"/>
                     <controls:SvgIcon x:Name="iconCtrl" BackgroundColor="White"/>
                 </StackLayout>
-            
+
                 <ScrollView>
                     <controls:ItemsView ItemsSource="{Binding Items}" 
                                         ItemTemplateSelector="{StaticResource componentTemplateSelector}"
                                         ItemContainerStyle="{StaticResource ItemContainnerStyle}">
                         <controls:ItemsView.Layout>
-                            <FlexLayout Direction="Row" Wrap="Wrap"  />
+                            <controls:GridWrapLayout ColumnSpacing="2" RowSpacing="4" CellMinHeight="80"  CellMinWidth="100"/>
                         </controls:ItemsView.Layout>
                     </controls:ItemsView>
                 </ScrollView>
-                <!--<ListView x:Name="ItemsListView" 
-                     ItemsSource="{Binding Items}"
-                     VerticalOptions="FillAndExpand"
-                     HasUnevenRows="true"
-                     RefreshCommand="{Binding LoadItemsCommand}"
-                     IsPullToRefreshEnabled="true"
-                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                     CachingStrategy="RecycleElement"
-                     ItemSelected="OnItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Padding="10">
-                                    <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                    <Label Text="{Binding State}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>-->
-            
             </StackLayout>
             <ActivityIndicator x:Name="activityIndicator"
                            IsRunning="{Binding IsBusy}"

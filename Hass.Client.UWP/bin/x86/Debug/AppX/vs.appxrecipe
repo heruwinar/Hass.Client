@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-28T21:04:29.539</Modified>
+      <Modified>2019-01-02T20:41:20.783</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Hass.Client.UWP.exe">
       <PackagePath>entrypoint\Hass.Client.UWP.exe</PackagePath>
-      <Modified>2018-12-28T21:04:28.723</Modified>
+      <Modified>2019-01-02T20:41:20.015</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nguyenl\.nuget\packages\castle.core\4.3.1\lib\netstandard1.5\Castle.Core.dll">
       <PackagePath>Castle.Core.dll</PackagePath>
@@ -760,11 +760,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.dll">
       <PackagePath>Hass.Client.dll</PackagePath>
-      <Modified>2018-12-28T21:04:20.130</Modified>
+      <Modified>2019-01-02T20:41:12.553</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.Mock.dll">
       <PackagePath>Hass.Client.Mock.dll</PackagePath>
-      <Modified>2018-12-28T21:04:20.387</Modified>
+      <Modified>2019-01-02T20:41:12.878</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Workspaces\Hass.Client\LocalPackages\websockets.pcl\1.1.9\lib\uap10.0\WebSockets.PCL.dll">
       <PackagePath>WebSockets.PCL.dll</PackagePath>
@@ -927,11 +927,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-12-28T21:04:28.439</Modified>
+      <Modified>2019-01-02T20:41:19.743</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-12-28T21:04:28.440</Modified>
+      <Modified>2019-01-02T20:41:19.744</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -947,7 +947,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Workspaces\Hass.Client\Hass.Client.UWP\bin\x86\Debug\Core\Hass.Client.UWP.exe">
       <PackagePath>Hass.Client.UWP.exe</PackagePath>
-      <Modified>2018-12-28T21:04:29.531</Modified>
+      <Modified>2019-01-02T20:41:20.774</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

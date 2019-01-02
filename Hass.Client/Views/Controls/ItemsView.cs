@@ -282,30 +282,44 @@ namespace Hass.Client.Views.Controls
             else
             {
                 View v = (View)itemTemplate.CreateContent();
-                FlexBasis basis = FlexLayout.GetBasis(v);
-                if (basis.Length > 0)
+                //FlexBasis basis = FlexLayout.GetBasis(v);
+                //if (basis.Length > 0)
+                //{
+                //    FlexLayout.SetBasis(itemView, basis);
+                //}
+                //FlexAlignSelf alignSelf = FlexLayout.GetAlignSelf(v);
+                //if (alignSelf != FlexAlignSelf.Auto)
+                //{
+                //    FlexLayout.SetAlignSelf(itemView, alignSelf);
+                //}
+                //float grow = FlexLayout.GetGrow(v);
+                //if (grow > 0)
+                //{
+                //    FlexLayout.SetGrow(itemView, grow);
+                //}
+                //float shrink = FlexLayout.GetShrink(v);
+                //if (shrink > 0)
+                //{
+                //    FlexLayout.SetShrink(itemView, shrink);
+                //}
+                //int order = FlexLayout.GetOrder(v);
+                //if (order > 0)
+                //{
+                //    FlexLayout.SetOrder(itemView, order);
+                //}
+                var wrapLayout = Layout as GridWrapLayout;
+                if(wrapLayout != null)
                 {
-                    FlexLayout.SetBasis(itemView, basis);
-                }
-                FlexAlignSelf alignSelf = FlexLayout.GetAlignSelf(v);
-                if (alignSelf != FlexAlignSelf.Auto)
-                {
-                    FlexLayout.SetAlignSelf(itemView, alignSelf);
-                }
-                float grow = FlexLayout.GetGrow(v);
-                if (grow > 0)
-                {
-                    FlexLayout.SetGrow(itemView, grow);
-                }
-                float shrink = FlexLayout.GetShrink(v);
-                if (shrink > 0)
-                {
-                    FlexLayout.SetShrink(itemView, shrink);
-                }
-                int order = FlexLayout.GetOrder(v);
-                if (order > 0)
-                {
-                    FlexLayout.SetOrder(itemView, order);
+                    int colSpan = GridWrapLayout.GetColumnSpan(v);
+                    if (colSpan > 1)
+                    {
+                        GridWrapLayout.SetColumnSpan(itemView, colSpan);
+                    }
+                    int rowSpan = GridWrapLayout.GetRowSpan(v);
+                    if (rowSpan > 1)
+                    {
+                        GridWrapLayout.SetRowSpan(itemView, rowSpan);
+                    }
                 }
                 itemView.Content = v;
             }
