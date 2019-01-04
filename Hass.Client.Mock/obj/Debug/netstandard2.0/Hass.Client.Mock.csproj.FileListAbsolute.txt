@@ -15,3 +15,12 @@ E:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.
 E:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.csproj.CopyComplete
 E:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.dll
 E:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.pdb
+C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.Mock.deps.json
+C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.Mock.dll
+C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.Mock.pdb
+C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.dll
+C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\WebSockets.PCL.dll
+C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.pdb
+C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.csproj.CopyComplete
+C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.dll
+C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.pdb

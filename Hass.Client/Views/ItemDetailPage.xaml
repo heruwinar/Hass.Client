@@ -2,7 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hass.Client.Views.ItemDetailPage"
+             xmlns:controls="clr-namespace:Hass.Client.Views.Controls"
+             xmlns:converters="clr-namespace:Hass.Client.Views.Converters"
+             xmlns:behaviors="clr-namespace:Hass.Client.Views.Behaviors"
+             xmlns:components="clr-namespace:Hass.Client.Models.Components"             
              Title="{Binding Title}">
+    
+    <ContentPage.Behaviors>
+        <behaviors:BindingContextSpyBehavior />
+    </ContentPage.Behaviors>
+
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Text:" FontSize="Medium" />
         <Label Text="{Binding Item.Id}" FontSize="Small"/>

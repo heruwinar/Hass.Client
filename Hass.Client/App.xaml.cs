@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Hass.Client.Views;
+using Hass.Client.ViewModels;
 
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Hass.Client
 {
-    public partial class App : Application
+    public partial class App : Application, IShellContext
     {
         CancellationToken cts = new CancellationToken();
 
@@ -22,13 +23,15 @@ namespace Hass.Client
             MainPage = new NavigationPage(new MainPage());
         }
 
-        private async void ConnectToServerAsync()
-        {
-        }
+        public INavigation Navigation { get; set; }
 
-        private void OnWsClientStateChanged(object sender, HassApi.StateChangedEventArgs e)
+       
+        public new static App Current
         {
-
+            get
+            {
+                return (App)Application.Current;
+            }
         }
 
         //private void OnWsClientStateChanged(object sender, HassApi.StateChangedEventArgs e)
@@ -84,6 +87,21 @@ namespace Hass.Client
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        void IShellContext.BeginInvokeInMainThread(Action action)
+        {
+            Device.BeginInvokeOnMainThread(action);
+        }
+
+        Task IShellContext.PushAsync(IViewModel viewModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IShellContext.PushModalAsync(IModalViewModel viewModel)
+        {
+            throw new NotImplementedException();
         }
     }
 }

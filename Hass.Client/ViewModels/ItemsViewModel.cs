@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -13,8 +14,30 @@ namespace Hass.Client.ViewModels
     public class ItemsViewModel : ViewModelBase
     {
         private HassSystem hass = new HassSystem();
+        private IComponent selectedComponent;
+
+        public IComponent SelectedComponent
+        {
+            get
+            {
+                return selectedComponent;
+            }
+            set
+            {
+                SetProperty(ref selectedComponent, value);
+            }
+        }
 
         public ObservableCollection<IComponent> Items { get; set; }
+
+        public string Name
+        {
+            get
+            {
+                return "Abc";
+            }
+        }
+
 
         public Command LoadItemsCommand { get; set; }
 
@@ -46,9 +69,12 @@ namespace Hass.Client.ViewModels
                 {
                     items.Add(c);
                 }
-                Items = items;
-                System.Threading.Thread.Sleep(1000);
-                Device.BeginInvokeOnMainThread(()=>OnPropertyChanged(nameof(Items)));
+                Device.BeginInvokeOnMainThread(()=>
+                    {
+                        Items = items;
+                        OnPropertyChanged(nameof(Items));
+                        SelectedComponent = items.FirstOrDefault();
+                    });
             }
             catch (Exception ex)
             {

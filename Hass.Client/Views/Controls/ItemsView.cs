@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -53,6 +54,7 @@ namespace Hass.Client.Views.Controls
             }
         }
 
+        public event EventHandler Selected;
 
         public static readonly BindableProperty LayoutProperty = BindableProperty.Create(
             "Layout",
@@ -90,6 +92,14 @@ namespace Hass.Client.Views.Controls
             propertyChanged: (bindable, oldvalue, newvalue) => ((ItemsView)bindable).OnItemContainerStyleChanged());
 
 
+        public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(
+            "SelectedItem",
+            typeof(object),
+            typeof(ItemsView),
+            defaultBindingMode: BindingMode.TwoWay,
+            propertyChanged: (bindable, oldvalue, newvalue) => ((ItemsView)bindable).OnSelectedItemChanged(oldvalue, newvalue));
+
+
         private TapGestureRecognizer tabGestureRecognizer;
 
         public ItemsView()
@@ -105,6 +115,7 @@ namespace Hass.Client.Views.Controls
             if(itemCtrl != null)
             {
                 itemCtrl.IsSelected = true;
+                Selected?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -252,17 +263,64 @@ namespace Hass.Client.Views.Controls
             }
         }
 
-        private ItemContainer currentSelected;
+        private ItemContainer currentSelectedItemContainer;
 
         public void ProcessItemIsSelectedChanged(ItemContainer itemContainer)
         {
-            if(itemContainer.IsSelected && itemContainer != currentSelected)
+            if(itemContainer.IsSelected && itemContainer != currentSelectedItemContainer)
             {
-                if(currentSelected?.IsSelected == true)
+                if(currentSelectedItemContainer?.IsSelected == true)
                 {
-                    currentSelected.IsSelected = false;
+                    currentSelectedItemContainer.IsSelected = false;
                 }
-                currentSelected = itemContainer;
+                currentSelectedItemContainer = itemContainer;
+                SelectedItem = currentSelectedItemContainer?.BindingContext;
+            }
+        }
+
+        public object SelectedItem
+        {
+            get
+            {
+                return GetValue(SelectedItemProperty);
+            }
+            set
+            {
+                SetValue(SelectedItemProperty, value);
+            }
+        }
+
+        private void OnSelectedItemChanged(object oldValue, object newValue)
+        {
+            Action resetSelectedItemContainer = () =>
+            {
+                if (currentSelectedItemContainer != null)
+                {
+                    currentSelectedItemContainer.IsSelected = false;
+                    currentSelectedItemContainer = null;
+                }
+            };
+
+            if (newValue == null)
+            {
+                resetSelectedItemContainer();
+                return;
+            }
+
+            if (currentSelectedItemContainer?.BindingContext == newValue)
+            {
+                return;
+            }
+
+
+            var newSelItem = (ItemContainer) Layout?.Children.FirstOrDefault(it => it.BindingContext == newValue);
+            if(newSelItem != null)
+            {
+                newSelItem.IsSelected = true;
+            }
+            else
+            {
+                resetSelectedItemContainer();
             }
         }
 

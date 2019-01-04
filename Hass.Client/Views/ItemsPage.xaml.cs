@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Hass.Client.Models;
-using Hass.Client.Views;
+using Hass.Client.Views.Common;
 using Hass.Client.ViewModels;
 
 namespace Hass.Client.Views
@@ -27,6 +27,8 @@ namespace Hass.Client.Views
             iconsPicker.SelectedIndexChanged += (s, e) => iconCtrl.SvgResourceKey = (string)iconsPicker.SelectedItem;
 
             BindingContext = viewModel = new ItemsViewModel();
+
+
         }
 
         //async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -49,9 +51,18 @@ namespace Hass.Client.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+        }
+
+        private async void ItemsView_Selected(object sender, EventArgs e)
+        {
+            var item = ((Controls.ItemsView)sender).SelectedItem as IComponent;
+            if (item != null)
+            {
+                await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            }
         }
     }
 }

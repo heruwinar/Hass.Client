@@ -32,7 +32,7 @@ namespace Hass.Client.UWP
             this.Suspending += OnSuspending;
 
             Websockets.Universal.WebsocketConnection.Link();
-            //HassApi.WsAPI.Instance = Mock.Factory.CreateMockIHassAPI();
+            HassApi.WsAPI.Instance = Mock.Factory.CreateMockIHassAPI();
         }
 
         /// <summary>

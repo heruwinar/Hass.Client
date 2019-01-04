@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hass.Client.Views.Controls.KeyPadView"
+             xmlns:controls="clr-namespace:Hass.Client.Views.Controls">
+    
+    <ContentView.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="BorderColor" Value="DarkGray" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="MinimumHeightRequest" Value="22" />
+            <Setter Property="MinimumWidthRequest" Value="200" />
+        </Style>
+    </ContentView.Resources>
+    
+    <Grid BackgroundColor="White">
+        <Grid.Resources>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="30,4,4,0">
+            <Label x:Name="lblCodeLabel" Text="Code" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" />
+            <Label x:Name="lblCodeValue" Text="" FontSize="20" VerticalTextAlignment="End" VerticalOptions="End" Margin="4,12,4,4" />
+            <controls:Line  VerticalOptions="End" HeightRequest="4" StrokeWidth="1" Margin="0,15,20,0" />
+        </Grid>
+        <Grid Grid.Row="1" Margin="10,0,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*" />
+                <ColumnDefinition Width="33*" />
+                <ColumnDefinition Width="33*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Text="1" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="0" Grid.Column="1" Text="2" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="0" Grid.Column="2" Text="3" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="1" Grid.Column="0" Text="4" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="1" Grid.Column="1" Text="5" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="1" Grid.Column="2" Text="6" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="2" Grid.Column="0" Text="7" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="2" Grid.Column="1" Text="8" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="2" Grid.Column="2" Text="9" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="3" Grid.Column="1" Text="0" Clicked="OnButtonKeyClicked" />
+            <Button Grid.Row="3" Grid.Column="2" Text="CLEAR" Clicked="OnButtonKeyClicked"/>
+            
+        </Grid>
+        <Grid Grid.Row="2" Margin="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Text="ARM HOME" />
+            <Button Grid.Column="1" Text="ARM AWAY" />
+        </Grid>
+    </Grid>
+</ContentView>

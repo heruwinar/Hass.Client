@@ -416,7 +416,6 @@ C:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\android\assets\System
 C:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\android\assets\Xamarin.Forms.Core.pdb
 C:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
-C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.dll
 E:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 E:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\Hass.Client.Android.csprojAssemblyReference.cache
 E:\Workspaces\Hass.Client\Hass.Client.Android\obj\Debug\81\Hass.Client.Android.dll

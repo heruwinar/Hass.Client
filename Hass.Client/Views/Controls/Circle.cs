@@ -7,57 +7,16 @@ using Svg = SkiaSharp.Extended.Svg;
 
 namespace Hass.Client.Views.Controls
 {
-    public class Circle: SKCanvasView
+    public class Circle: Shape
     {
 
-        public static BindableProperty StrokeWidthProperty = BindableProperty.Create(
-            "StrokeWidth",
-            typeof(float),
-            typeof(Circle),
-            defaultValue: 1.0f,
-            propertyChanged: (s, o, n) => ((Circle)s).InvalidateSurface());
-
-        public static BindableProperty StrokeColorProperty = BindableProperty.Create(
-            "StrokeColor",
-            typeof(Color),
-            typeof(Circle),
-            defaultValue: new Color(0, 0, 0),
-            propertyChanged: (s, o, n) => ((Circle)s).InvalidateSurface());
-
-        public float StrokeWidth
+        protected override void OnPaint(SKCanvas canvas, ref SKSize size, ref SKPaint paint)
         {
-            get { return (float)GetValue(StrokeWidthProperty); }
-            set { SetValue(StrokeWidthProperty, value); }
-        }
-
-        public Color StrokeColor
-        {
-            get { return (Color)GetValue(StrokeColorProperty); }
-            set { SetValue(StrokeColorProperty, value); }
-        }
-
-        protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
-        {
-            base.OnPaintSurface(e);
-
-            var canvas = e.Surface.Canvas;
-
-            canvas.Clear(SKColors.Transparent);
-
-            SKSize size = canvas.DeviceClipBounds.Size;
-
             canvas.DrawCircle(
-                size.Width / 2, 
-                size.Height / 2, 
-                Math.Max(0, Math.Min(size.Width, size.Height) -2) / 2, 
-                new SKPaint
-                {
-                    IsAntialias = true,
-                    DeviceKerningEnabled = true,
-                    Color = StrokeColor.ToSKColor(),
-                    IsStroke = true,
-                    StrokeWidth = StrokeWidth,
-                });
+                size.Width / 2,
+                size.Height / 2,
+                Math.Max(0, Math.Min(size.Width, size.Height) - 2) / 2,
+                paint);
         }
 
     }

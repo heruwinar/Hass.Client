@@ -31,6 +31,28 @@ namespace Hass.Client.Util
             return task.Result;
         }
 
+        public static void AnimateFontSize(this Label owner, string name, double fontSize, Action finished)
+        {
+            if(owner.FontSize == fontSize)
+            {
+                finished();
+                return;
+            }
+
+            var anim = new Animation(v => owner.FontSize = v , start: owner.FontSize, end: fontSize);
+
+            anim.Commit(
+                owner,
+                name,
+                length: 150,
+                easing: Easing.Linear, 
+                finished: (a, f) =>
+                {
+                    owner.FontSize = fontSize;
+                    finished();
+                });
+        }
+
     }
 
 }
