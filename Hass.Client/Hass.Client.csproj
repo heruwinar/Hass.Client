@@ -13,7 +13,8 @@
   <ItemGroup>
     <None Remove="Views\Controls\Svg\Alarm-armed-away.svg" />
     <None Remove="Views\Controls\Svg\Alarm-armed-home.svg" />
-    <None Remove="Views\Controls\Svg\Alarm-pending.svg" />
+    <None Remove="Views\Controls\Svg\alarm-pending-armed-away.svg" />
+    <None Remove="Views\Controls\Svg\alarm-pending-triggered.svg" />
     <None Remove="Views\Controls\Svg\Alarm-triggered.svg" />
     <None Remove="Views\Controls\Svg\appletv.svg" />
     <None Remove="Views\Controls\Svg\automation.svg" />
@@ -56,6 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Views\Controls\Svg\alarm-pending-triggered.svg" />
     <EmbeddedResource Include="Views\Controls\Svg\configurator - Copy.svg" />
     <EmbeddedResource Include="Views\Controls\Svg\configurator.svg" />
     <EmbeddedResource Include="Views\Controls\Svg\dashboard.svg" />
@@ -90,7 +92,7 @@
     <EmbeddedResource Include="Views\Controls\Svg\sun-rise.svg" />
     <EmbeddedResource Include="Views\Controls\Svg\alarm-armed-away.svg" />
     <EmbeddedResource Include="Views\Controls\Svg\alarm-armed-home.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\alarm-pending.svg" />
+    <EmbeddedResource Include="Views\Controls\Svg\alarm-pending-armed-away.svg" />
     <EmbeddedResource Include="Views\Controls\Svg\alarm-triggered.svg" />
     <EmbeddedResource Include="Views\Controls\Svg\bell.svg" />
     <EmbeddedResource Include="Views\Controls\Svg\lock-locked.svg" />

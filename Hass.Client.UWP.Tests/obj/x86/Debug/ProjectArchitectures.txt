@@ -1,1 +1,0 @@
-C:\Workspaces\Hass.Client\Hass.Client.UWP.Tests\Hass.Client.UWP.Tests.csproj;x86

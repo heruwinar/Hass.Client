@@ -52,12 +52,9 @@ D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.cspro
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.dll
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.pdb
 D:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache
-C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.deps.json
-C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.dll
-C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.pdb
-C:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\WebSockets.PCL.dll
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
+C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\Converters\ItemsPage.xaml.g.cs
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\ItemsPage.xaml.g.cs
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
@@ -65,8 +62,4 @@ C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\NewItemPage
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csproj.CoreCompileInputs.cache
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.AssemblyInfoInputs.cache
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.AssemblyInfo.cs
-C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\XamlC.stamp
-C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csproj.CopyComplete
-C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.dll
-C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.pdb
 C:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache

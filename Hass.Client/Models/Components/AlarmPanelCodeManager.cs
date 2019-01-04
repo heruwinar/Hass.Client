@@ -5,6 +5,7 @@ using Hass.Client.HassApi;
 
 namespace Hass.Client.Models.Components
 {
+
     public class AlarmPanelCodeManager: Entity<string>
     {
         public AlarmPanelCodeManager(string id)

@@ -29,8 +29,8 @@ namespace Hass.Client.Views.Controls
 
             public DataTemplate FindTemplate(Type key)
             {
-                TemplateEntry entry;
-                Dictionary.TryGetValue(key, out entry);
+                TemplateEntry entry = null;
+                Dictionary?.TryGetValue(key, out entry);
                 return entry?.DataTemplate;
             }
 

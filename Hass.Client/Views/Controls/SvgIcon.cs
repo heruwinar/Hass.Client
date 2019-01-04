@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using Xamarin.Forms;
@@ -11,6 +11,8 @@ namespace Hass.Client.Views.Controls
 {
     public class SvgIcon : SKCanvasView
     {
+
+
         public static BindableProperty SvgResourceKeyProperty = BindableProperty.Create(
             "SvgResourceKey",
             typeof(string),
@@ -19,6 +21,9 @@ namespace Hass.Client.Views.Controls
             BindingMode.OneWay,
             null,
             (s, old, @new) => ((SvgIcon)s).OnSvgResourceKeyChanged((string)old, (string)@new));
+
+        private static Dictionary<string, SKPicture> svgs = new Dictionary<string, SKPicture>();
+
 
         private SKPicture picture;
 
@@ -34,45 +39,44 @@ namespace Hass.Client.Views.Controls
             }
         }
 
-        private void DisposePicture()
-        {
-            if(picture != null)
-            {
-                picture.Dispose();
-                picture = null;
-            }
-        }
-
         private void OnSvgResourceKeyChanged(string oldValue, string newValue)
         {
-            DisposePicture();
             //"XApp.Views.Icons.ZWave.svg"
+            picture = null;
+
             if (!string.IsNullOrEmpty(newValue))
             {
                 string resxId = newValue.IndexOf(".") > 0 
                     ? newValue 
                     : $"{typeof(SvgIcon).Namespace}.Svg.{newValue}.svg";
 
-                using (Stream stream = GetType().Assembly.GetManifestResourceStream(resxId))
+                if(!svgs.TryGetValue(resxId, out picture))
                 {
-                    Svg.SKSvg svg = new Svg.SKSvg();
-                    svg.Load(stream);
-                    picture = svg.Picture;
+                    using (Stream stream = GetType().Assembly.GetManifestResourceStream(resxId))
+                    {
+                        if(stream != null)
+                        {
+                            Svg.SKSvg svg = new Svg.SKSvg();
+                            svg.Load(stream);
+                            picture = svgs[resxId] = svg.Picture;
+                        }
+                    }
                 }
             }
             InvalidateSurface();
         }
 
+        
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
         {
             base.OnPaintSurface(e);
             
             var canvas = e.Surface.Canvas;
-            if(BackgroundColor.A > 0.1)
-            {
-                canvas.Clear(BackgroundColor.ToSKColor());
-            }
-            
+            //if(BackgroundColor.A > 0.1)
+            //{
+            //    canvas.Clear(BackgroundColor.ToSKColor());
+            //}
+            canvas.Clear(SKColors.Transparent);
             if(picture != null)
             {
                 SKSize size = canvas.DeviceClipBounds.Size;

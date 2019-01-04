@@ -42,12 +42,15 @@ namespace Hass.Client.Views.Controls
 
             var canvas = e.Surface.Canvas;
 
+            canvas.Clear(SKColors.Transparent);
+
             SKSize size = canvas.DeviceClipBounds.Size;
 
             canvas.DrawCircle(
                 size.Width / 2, 
                 size.Height / 2, 
-                Math.Max(0, Math.Min(size.Width, size.Height) -2) / 2, new SKPaint
+                Math.Max(0, Math.Min(size.Width, size.Height) -2) / 2, 
+                new SKPaint
                 {
                     IsAntialias = true,
                     DeviceKerningEnabled = true,

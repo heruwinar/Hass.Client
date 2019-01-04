@@ -1,13 +1,4 @@
-C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.Mock.deps.json
-C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.Mock.dll
-C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.Mock.pdb
-C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.dll
-C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\WebSockets.PCL.dll
-C:\Workspaces\Hass.Client\Hass.Client.Mock\bin\Debug\netstandard2.0\Hass.Client.pdb
 C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.csprojAssemblyReference.cache
 C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.csproj.CoreCompileInputs.cache
 C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.AssemblyInfoInputs.cache
 C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.AssemblyInfo.cs
-C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.csproj.CopyComplete
-C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.dll
-C:\Workspaces\Hass.Client\Hass.Client.Mock\obj\Debug\netstandard2.0\Hass.Client.Mock.pdb

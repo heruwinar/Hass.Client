@@ -54,37 +54,38 @@
                     <RowDefinition Height="7*" />
                     <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
-                <!--<Grid Grid.Row="0">
+                <Grid Grid.Row="0">
                     <controls:Circle StrokeColor="Orange" StrokeWidth="2"/>
                     <controls:SvgIcon x:Name="alarmSvg" SvgResourceKey="{Binding State, Converter={x:Static converters:AlarmControlPanelStateSvgConvter.Default}}" Style="{StaticResource SvgIconStyle}" />
                     <Frame Style="{StaticResource BadgeFrameStyle}">
-                        <Label Text="{Binding State, Converter={x:Static converters:AlarmControlPanelStateTextConverter.Default}}" Style="{StaticResource BadgeLabelStyle}"/>
+                        <Label Text="{Binding State, Converter={x:Static converters:AlarmControlPanelStateText.Default}}" Style="{StaticResource BadgeLabelStyle}"/>
                     </Frame>
-                </Grid>-->
+                </Grid>
                 <Label Grid.Row="1" Text="{Binding FriendlyName}" Style="{StaticResource FriendlyNameLabelStyle}"/>
             </Grid>
         </DataTemplate>
 
         <DataTemplate x:Key="SensorTemplate">
             <Grid>
-                <!--<Grid.RowDefinitions>
+                <Grid.RowDefinitions>
                     <RowDefinition Height="7*" />
                     <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <controls:Circle StrokeColor="Orange" StrokeWidth="2"/>
+                    <controls:SvgIcon x:Name="alarmSvg" SvgResourceKey="{Binding State, Converter={x:Static converters:AlarmControlPanelStateSvgConvter.Default}}" Style="{StaticResource SvgIconStyle}" />
                     <Frame Style="{StaticResource BadgeFrameStyle}">
-                        <Label Text="{Binding UnitOfMeasurement}" Style="{StaticResource BadgeLabelStyle}" IsVisible="{x:Static converters:IsEmptyConverter.IsNotEmpty}"/>
+                        <Label Text="{Binding UnitOfMeasurement}" Style="{StaticResource BadgeLabelStyle}" IsVisible="{x:Static converters:IsEmptyConverter}"/>
                     </Frame>
                 </Grid>
                 <Label Grid.Row="0" Text="{Binding State}" Style="{StaticResource StateLabelStyle}"/>
-                <Label Grid.Row="1" Text="{Binding FriendlyName}" Style="{StaticResource FriendlyNameLabelStyle}"/>-->
+                <Label Grid.Row="1" Text="{Binding FriendlyName}" Style="{StaticResource FriendlyNameLabelStyle}"/>
             </Grid>
         </DataTemplate>
 
         <DataTemplate x:Key="DefaultComponentTemplate">
             <Grid>
-                <!--<Grid.RowDefinitions>
+                <Grid.RowDefinitions>
                     <RowDefinition Height="6*"/>
                     <RowDefinition Height="4*" />
                 </Grid.RowDefinitions>
@@ -96,11 +97,14 @@
                     </Frame>
                 </Grid>
                 <Label Grid.Row="0" Text="{Binding State}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12" FontFamily="Tahoma"/>
-                <Label Grid.Row="1" Text="{Binding FriendlyName}" HorizontalOptions="Center" VerticalOptions="Start" FontSize="10" FontFamily="Tahoma" HorizontalTextAlignment="Center"/>-->
+                <Label Grid.Row="1" Text="{Binding FriendlyName}" HorizontalOptions="Center" VerticalOptions="Start" FontSize="10" FontFamily="Tahoma" HorizontalTextAlignment="Center"/>
             </Grid>
         </DataTemplate>
 
         <Style x:Key="ItemContainnerStyle" TargetType="{x:Type controls:ItemContainer}">
+            <!--<Setter Property="FlexLayout.Basis" Value="120" />
+            <Setter Property="FlexLayout.Grow" Value="10" />
+            <Setter Property="FlexLayout.HeightRequest" Value="100" />-->
             <Setter Property="BackgroundColor" Value="AliceBlue" />
             <Setter Property="Margin" Value="4" />
             <Setter Property="IsTabStop" Value="true" />
