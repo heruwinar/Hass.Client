@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using Hass.Client.Models.Components;
 
 namespace Hass.Client.Views.Converters
 {
 
-    public class IsEmptyConverter : BaseConverter<IEnumerable<object>>
+    public class IsEmptyConverter : BaseConverter<IEnumerable>
     {
 
         public static IsEmptyConverter IsEmpty = new IsEmptyConverter();
@@ -15,9 +15,9 @@ namespace Hass.Client.Views.Converters
 
         public bool IsNegate { get; set; }
 
-        protected override object Convert(IEnumerable<object> value,  object parameter)
+        protected override object Convert(IEnumerable value,  object parameter)
         {
-            bool v = value == null || !value.Any();
+            bool v = value == null || !value.GetEnumerator().MoveNext();
             return IsNegate ? !v : v;
         }
 

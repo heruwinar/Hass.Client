@@ -45,8 +45,8 @@ namespace Hass.Client.Models.Components
         {
             base.InitializeValues(state);
             State = state.State;
-            UnitOfMeasurement = state.Attributes.GetValue<string>("device_class");
-            DeviceClass = state.Attributes.GetValue<string>("unit_of_measurement");
+            DeviceClass = state.Attributes.GetValue<string>("device_class");
+            UnitOfMeasurement= state.Attributes.GetValue<string>("unit_of_measurement");
         }
 
     }

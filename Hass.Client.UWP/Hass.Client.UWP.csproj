@@ -172,7 +172,7 @@
       <Name>Hass.Client.Mock</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hass.Client\Hass.Client.csproj">
-      <Project>{DFB4D9EE-E2CF-4C16-9E15-3C192BE856E6}</Project>
+      <Project>{ea3696c3-90e9-49b2-ada6-94e09122c317}</Project>
       <Name>Hass.Client</Name>
     </ProjectReference>
   </ItemGroup>

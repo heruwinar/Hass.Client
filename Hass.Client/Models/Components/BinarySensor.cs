@@ -36,7 +36,7 @@ namespace Hass.Client.Models.Components
             State = StringComparer.InvariantCultureIgnoreCase.Equals(v, "on")
                 || StringComparer.InvariantCultureIgnoreCase.Equals(v, "true");
 
-            DeviceClass = state.Attributes.GetValue<string>("unit_of_measurement");
+            DeviceClass = state.Attributes.GetValue<string>("device_class");
         }
 
     }
