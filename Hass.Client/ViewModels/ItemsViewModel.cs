@@ -3,9 +3,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
-
+using Hass.Client.Common;
 using Hass.Client.Models;
 using Hass.Client.Views;
 
@@ -15,6 +13,20 @@ namespace Hass.Client.ViewModels
     {
         private HassSystem hass = new HassSystem();
         private IComponent selectedComponent;
+
+        public ItemsViewModel()
+        {
+            Title = "Browse";
+            Items = new ObservableCollection<IComponent>();
+            LoadItemsCommand = new BindableCommand(async () => await ExecuteLoadItemsCommand());
+
+            //MessagingCenter.Subscribe<NewItemPage, IComponent>(this, "AddItem", (obj, item) =>
+            //{
+            //});
+            ExecuteLoadItemsCommand();
+        }
+
+        public BindableCommand SelectItemCommand { get; private set; }
 
         public IComponent SelectedComponent
         {
@@ -27,7 +39,7 @@ namespace Hass.Client.ViewModels
                 SetProperty(ref selectedComponent, value);
             }
         }
-
+        
         public ObservableCollection<IComponent> Items { get; set; }
 
         public string Name
@@ -39,19 +51,7 @@ namespace Hass.Client.ViewModels
         }
 
 
-        public Command LoadItemsCommand { get; set; }
-
-        public ItemsViewModel()
-        {
-            Title = "Browse";
-            Items = new ObservableCollection<IComponent>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            MessagingCenter.Subscribe<NewItemPage, IComponent>(this, "AddItem",  (obj, item) =>
-            {
-            });
-            ExecuteLoadItemsCommand();
-        }
+        public BindableCommand LoadItemsCommand { get; set; }
 
         async Task ExecuteLoadItemsCommand()
         {
@@ -69,7 +69,7 @@ namespace Hass.Client.ViewModels
                 {
                     items.Add(c);
                 }
-                Device.BeginInvokeOnMainThread(()=>
+                ShellContext.BeginInvokeOnMainThread(()=>
                     {
                         Items = items;
                         OnPropertyChanged(nameof(Items));

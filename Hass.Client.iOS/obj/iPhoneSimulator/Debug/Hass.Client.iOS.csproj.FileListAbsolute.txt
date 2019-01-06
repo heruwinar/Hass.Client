@@ -58,6 +58,13 @@ E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\actool\_Part
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\actool\_BundleResourceWithLogicalName.items
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.csprojAssemblyReference.cache
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.csproj.CoreCompileInputs.cache
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\XamlC.stamp
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.csproj.CopyComplete
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.exe
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.pdb
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\tab_about.png
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\tab_about@2x.png
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\tab_about@3x.png
@@ -67,10 +74,3 @@ E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\ta
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\xamarin_logo.png
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\xamarin_logo@2x.png
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\xamarin_logo@3x.png
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\optimized\
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.csprojAssemblyReference.cache
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.csproj.CoreCompileInputs.cache
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\XamlC.stamp
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.csproj.CopyComplete
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.exe
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhoneSimulator\Debug\Hass.Client.iOS.pdb

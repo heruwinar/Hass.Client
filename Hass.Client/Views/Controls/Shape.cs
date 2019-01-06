@@ -13,16 +13,16 @@ namespace Hass.Client.Views.Controls
         public static BindableProperty StrokeWidthProperty = BindableProperty.Create(
             "StrokeWidth",
             typeof(float),
-            typeof(Circle),
+            typeof(Shape),
             defaultValue: 1.0f,
-            propertyChanged: (s, o, n) => ((Circle)s).InvalidateSurface());
+            propertyChanged: (s, o, n) => ((Shape)s).InvalidateSurface());
 
         public static BindableProperty StrokeColorProperty = BindableProperty.Create(
             "StrokeColor",
             typeof(Color),
-            typeof(Circle),
-            defaultValue: new Color(0, 0, 0),
-            propertyChanged: (s, o, n) => ((Circle)s).InvalidateSurface());
+            typeof(Shape),
+            defaultValue: Color.Beige,
+            propertyChanged: (s, o, n) => ((Shape)s).InvalidateSurface());
 
         public float StrokeWidth
         {

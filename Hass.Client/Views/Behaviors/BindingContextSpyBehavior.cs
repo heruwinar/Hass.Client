@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Xamarin.Forms;
-using Hass.Client.Views.Common;
+using Hass.Client.Common;
 using Hass.Client.ViewModels;
 
 namespace Hass.Client.Views.Behaviors
@@ -13,12 +13,12 @@ namespace Hass.Client.Views.Behaviors
         {
             var pg = (Page)sender;
 
-            foreach (BindingContextSpy ctxSpy in pg.Resources
-                            .Select(kvp => kvp.Value)
-                            .Where(r => r is BindingContextSpy))
-            {
-                ctxSpy.BindingContext = pg.BindingContext;
-            }
+            //foreach (BindingContextSpy ctxSpy in pg.Resources
+            //                .Select(kvp => kvp.Value)
+            //                .Where(r => r is BindingContextSpy))
+            //{
+            //    ctxSpy.BindingContext = pg.BindingContext;
+            //}
         }
 
         protected override void OnAttachedTo(Page page)

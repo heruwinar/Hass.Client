@@ -2,10 +2,12 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hass.Client.Views.Controls.KeyPadView"
-             xmlns:controls="clr-namespace:Hass.Client.Views.Controls">
+             x:Name="thisPage"
+             xmlns:controls="clr-namespace:Hass.Client.Views.Controls"
+             xmlns:converters="clr-namespace:Hass.Client.Views.Converters">
     
     <ContentView.Resources>
-        <Style TargetType="Button">
+        <Style x:Key="BtnStyle" TargetType="Button">
             <Setter Property="Margin" Value="4" />
             <Setter Property="BorderColor" Value="DarkGray" />
             <Setter Property="CornerRadius" Value="4" />
@@ -13,20 +15,23 @@
             <Setter Property="MinimumHeightRequest" Value="22" />
             <Setter Property="MinimumWidthRequest" Value="200" />
         </Style>
+
+        <Style x:Key="CmdButtonStyle" TargetType="Button" BasedOn="{StaticResource BtnStyle}">
+            
+        </Style>
     </ContentView.Resources>
     
-    <Grid BackgroundColor="White">
+    <Grid BackgroundColor="White" BindingContext="{Binding Source={x:Reference thisPage}}">
         <Grid.Resources>
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Margin="30,4,4,0">
-            <Label x:Name="lblCodeLabel" Text="Code" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" />
-            <Label x:Name="lblCodeValue" Text="" FontSize="20" VerticalTextAlignment="End" VerticalOptions="End" Margin="4,12,4,4" />
-            <controls:Line  VerticalOptions="End" HeightRequest="4" StrokeWidth="1" Margin="0,15,20,0" />
+        <Grid Grid.Row="0" Margin="30,4,4,0">
+            <Label x:Name="lblCodeValue" Text="" FontSize="24" VerticalTextAlignment="End" VerticalOptions="End" Margin="4,14,4,4" TextColor="#222"/>
+            <Label x:Name="lblCodeLabel" Text="{Binding HeaderText}" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" TextColor="#222"/>
+            <controls:Line  VerticalOptions="End" HeightRequest="10" StrokeWidth="1" StrokeColor="#aaaa" Margin="0,0,20,0" />
         </Grid>
         <Grid Grid.Row="1" Margin="10,0,10,0">
             <Grid.RowDefinitions>
@@ -40,26 +45,34 @@
                 <ColumnDefinition Width="33*" />
                 <ColumnDefinition Width="33*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="0" Grid.Column="0" Text="1" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="0" Grid.Column="1" Text="2" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="0" Grid.Column="2" Text="3" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="1" Grid.Column="0" Text="4" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="1" Grid.Column="1" Text="5" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="1" Grid.Column="2" Text="6" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="2" Grid.Column="0" Text="7" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="2" Grid.Column="1" Text="8" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="2" Grid.Column="2" Text="9" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="3" Grid.Column="1" Text="0" Clicked="OnButtonKeyClicked" />
-            <Button Grid.Row="3" Grid.Column="2" Text="CLEAR" Clicked="OnButtonKeyClicked"/>
+            <Button Grid.Row="0" Grid.Column="0" Text="1" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="0" Grid.Column="1" Text="2" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="0" Grid.Column="2" Text="3" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="1" Grid.Column="0" Text="4" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="1" Grid.Column="1" Text="5" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="1" Grid.Column="2" Text="6" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="2" Grid.Column="0" Text="7" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="2" Grid.Column="1" Text="8" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="2" Grid.Column="2" Text="9" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="3" Grid.Column="1" Text="0" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}" />
+            <Button Grid.Row="3" Grid.Column="2" Text="CLEAR" Clicked="OnButtonKeyClicked" Style="{StaticResource BtnStyle}"/>
+            <Grid Grid.Row="4" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" 
+                        Text="{Binding Command1.Text}" 
+                        Command="{Binding Command1}" 
+                        Style="{StaticResource BtnStyle}" 
+                        IsVisible="{Binding Command1, Converter={x:Static converters:IsNotNullConverter.Default}}"/>
+                <Button Grid.Column="1" 
+                        Text="{Binding Command2.Text}" 
+                        Command="{Binding Command2}" 
+                        Style="{StaticResource BtnStyle}" 
+                        IsVisible="{Binding Command2, Converter={x:Static converters:IsNotNullConverter.Default}}" />
+            </Grid>
             
-        </Grid>
-        <Grid Grid.Row="2" Margin="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Text="ARM HOME" />
-            <Button Grid.Column="1" Text="ARM AWAY" />
         </Grid>
     </Grid>
 </ContentView>

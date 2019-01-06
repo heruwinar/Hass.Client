@@ -6,7 +6,7 @@ namespace Hass.Client.ViewModels
 {
     public interface IShellContext
     {
-        void BeginInvokeInMainThread(Action action);
+        void BeginInvokeOnMainThread(Action action);
 
         Task PushAsync(IViewModel viewModel);
 

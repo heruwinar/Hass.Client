@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+        <Title>Bindable Property</Title>
+        <Author>Loc Nguyen</Author>
+        <Description>Add Bindable Property to the current class</Description>
+        <Shortcut>bp</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+          <Literal default="true" Editable="false">
+              <ID>classname</ID> 
+              <ToolTip>Class name</ToolTip> 
+              <Function>ClassName()</Function> 
+              <Default>ClassNamePlaceholder</Default> 
+          </Literal>
+          <Literal>
+              <ID>type</ID>
+              <ToolTip>Property Type</ToolTip>
+              <Default>string</Default>
+          </Literal>
+          <Literal>
+              <ID>propertyName</ID>
+              <ToolTip>Name of the property</ToolTip>
+              <Default>PropertyName</Default>
+          </Literal>
+          <Literal>
+              <ID>fieldName</ID>
+              <ToolTip>Backing field of the property</ToolTip>
+              <Default>field</Default>
+          </Literal>
+      </Declarations>
+      <Imports>
+          <Import>
+              <Namespace>Hass.Client.Models</Namespace>
+          </Import>
+      </Imports>
+      <Code Language="C#">
+          <![CDATA[private $type$ $fieldName$;
+          
+        public $type$ $propertyName$
+        {
+            get
+            {
+                return $fieldName$;
+            }
+            set
+            {
+                SetProperty(ref $fieldName$, value);
+            }
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

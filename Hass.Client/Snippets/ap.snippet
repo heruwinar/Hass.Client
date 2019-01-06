@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+        <Title>Dependency/Bindable Attached Property</Title>
+        <Author>Loc Nguyen</Author>
+        <Description>Add Dependency/Attached Property to the current class</Description>
+        <Shortcut>ap</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Xamarin.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+          <Literal default="true" Editable="false">
+              <ID>classname</ID> 
+              <ToolTip>Class name</ToolTip> 
+              <Function>ClassName()</Function> 
+              <Default>ClassNamePlaceholder</Default> 
+          </Literal>
+          <Literal>
+              <ID>ctrltype</ID>
+              <ToolTip>View/Control Type</ToolTip>
+              <Default>VisualElement</Default>
+          </Literal>
+          <Literal>
+              <ID>type</ID>
+              <ToolTip>Property Type</ToolTip>
+              <Default>string</Default>
+          </Literal>
+          <Literal>
+              <ID>propertyName</ID>
+              <ToolTip>Name of the property</ToolTip>
+              <Default>PropertyName</Default>
+          </Literal>
+          <Literal>
+              <ID>fieldName</ID>
+              <ToolTip>Backing field of the property</ToolTip>
+              <Default>field</Default>
+          </Literal>
+      </Declarations>
+      <Code Language="C#">
+          <![CDATA[public static BindableProperty $propertyName$Property = BindableProperty.CreateAttached(
+                "$propertyName$",
+                typeof($type$),
+                typeof($classname$),
+                default($type$),
+                propertyChanged: (s, o, n) => On$propertyName$Changed(($ctrltype$)s, ($type$)o, ($type$)n));
+          
+        public static $type$ Get$propertyName$($ctrltype$ view)
+        {
+            return ($type$)view.GetValue($propertyName$Property);
+        }
+        
+        public static void Set$propertyName$($ctrltype$ view, $type$ value)
+        {
+            view.SetValue($propertyName$Property, value);
+        }
+        
+        private static void On$propertyName$Changed($ctrltype$ view, $type$ oldValue, $type$ newValue)
+        {
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

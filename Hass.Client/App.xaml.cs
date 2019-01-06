@@ -89,7 +89,7 @@ namespace Hass.Client
             // Handle when your app resumes
         }
 
-        void IShellContext.BeginInvokeInMainThread(Action action)
+        void IShellContext.BeginInvokeOnMainThread(Action action)
         {
             Device.BeginInvokeOnMainThread(action);
         }

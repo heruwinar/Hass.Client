@@ -6,7 +6,6 @@
              xmlns:converters="clr-namespace:Hass.Client.Views.Converters"
              xmlns:behaviors="clr-namespace:Hass.Client.Views.Behaviors"
              xmlns:components="clr-namespace:Hass.Client.Models.Components"
-             xmlns:common="clr-namespace:Hass.Client.Views.Common"
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
     
@@ -15,7 +14,6 @@
     </ContentPage.Behaviors>
     
     <ContentPage.Resources>
-        <common:BindingContextSpy x:Key="bindingCtxSpy" />
         
         <Style x:Key="BaseTextStyle" TargetType="Label">
             <Setter Property="HorizontalOptions" Value="Center" />
@@ -178,7 +176,15 @@
                            IsRunning="{Binding IsBusy}"
                            VerticalOptions="Center" />
 
-            <controls:KeyPadView WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <controls:KeyPadView x:Name="alarmPanel" 
+                                 HeaderText="Enter Code" 
+                                 Code="{Binding Code}"
+                                 Command1="{Binding ArmHomeCommand}"
+                                 Command2="{Binding ArmAwayCommand}"
+                                 WidthRequest="300" 
+                                 MinimumHeightRequest="300" 
+                                 HorizontalOptions="Center" 
+                                 VerticalOptions="Center"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

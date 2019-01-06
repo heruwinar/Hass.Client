@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Hass.Client.Util;
+using Hass.Client.Common;
 
 namespace Hass.Client.Views.Controls
 {
@@ -14,22 +15,44 @@ namespace Hass.Client.Views.Controls
     public partial class KeyPadView : ContentView
     {
 
-        public BindableProperty CodeProperty = BindableProperty.Create(
+        public static BindableProperty HeaderTextProperty = BindableProperty.Create(
+            "HeaderText",
+            typeof(string),
+            typeof(KeyPadView),
+            "Code");
+
+        public static BindableProperty CodeProperty = BindableProperty.Create(
             "Code",
             typeof(string),
             typeof(KeyPadView),
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: (s, o, n) => ((KeyPadView)s).OnCodeChanged());
 
-        public BindableProperty CodeLengthProperty = BindableProperty.Create(
+        public static BindableProperty CodeLengthProperty = BindableProperty.Create(
             "CodeLength",
             typeof(int),
             typeof(KeyPadView),
             6);
 
+        public static BindableProperty Command1Property = BindableProperty.Create(
+            "Command1",
+            typeof(BindableCommand),
+            typeof(KeyPadView));
+
+        public static BindableProperty Command2Property = BindableProperty.Create(
+            "Command2",
+            typeof(BindableCommand),
+            typeof(KeyPadView));
+
+
+        private double lblCodeLabelFontSize;
+
         public KeyPadView()
         {
             InitializeComponent();
+            OnCodeChanged();
+            lblCodeLabelFontSize = lblCodeLabel.FontSize;
+            BindingContext = this;
         }
 
         public string Code
@@ -41,6 +64,42 @@ namespace Hass.Client.Views.Controls
             set
             {
                 SetValue(CodeProperty, value);
+            }
+        }
+
+        public string HeaderText
+        {
+            get
+            {
+                return (string)GetValue(HeaderTextProperty);
+            }
+            set
+            {
+                SetValue(HeaderTextProperty, value);
+            }
+        }
+
+        public BindableCommand Command1
+        {
+            get
+            {
+                return (BindableCommand)GetValue(Command1Property);
+            }
+            set
+            {
+                SetValue(Command1Property, value);
+            }
+        }
+
+        public BindableCommand Command2
+        {
+            get
+            {
+                return (BindableCommand)GetValue(Command2Property);
+            }
+            set
+            {
+                SetValue(Command2Property, value);
             }
         }
 
@@ -96,11 +155,11 @@ namespace Hass.Client.Views.Controls
             if (newCode.Length == 0)
             {
                 setCode();
-                lblCodeLabel.AnimateFontSize(animName, 20, () => { });
+                lblCodeLabel.AnimateFontSize(animName, lblCodeLabelFontSize, () => { });
             }
             else if (newCode.Length == 1)
             {
-                lblCodeLabel.AnimateFontSize(animName, 12, setCode);
+                lblCodeLabel.AnimateFontSize(animName, lblCodeLabelFontSize - 8, setCode);
             }
             else
             {
@@ -110,8 +169,9 @@ namespace Hass.Client.Views.Controls
 
         private void OnCodeChanged()
         {
-            lblCodeValue.Text = new string('*', (Code?.Length).GetValueOrDefault());
+            lblCodeValue.Text = " " + new string('*', (Code?.Length).GetValueOrDefault());
         }
+
 
     }
 }
