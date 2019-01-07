@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Hass.Client.HassApi;
+using Hass.Client.Core;
 
 namespace Hass.Client.Models
 {

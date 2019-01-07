@@ -36,3 +36,4 @@ E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.cspro
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.dll
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.pdb
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache
+E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\AlarmControlPanelView.xaml.g.cs

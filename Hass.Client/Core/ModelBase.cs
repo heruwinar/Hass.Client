@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using Xamarin.Forms;
-
-
-namespace Hass.Client.Models
+namespace Hass.Client.Core
 {
 
     public class ModelBase : INotifyPropertyChanged

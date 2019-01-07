@@ -70,7 +70,7 @@
                     </Frame>
                 </Grid>
                 <!--<Label Grid.Row="1" Text="{Binding FriendlyName}" Style="{StaticResource FriendlyNameLabelStyle}"/>-->
-                <Label Grid.Row="1" Text="{Binding BindingContext.Name, Source={StaticResource bindingCtxSpy}}" Style="{StaticResource FriendlyNameLabelStyle}" />
+                <Label Grid.Row="1" Text="{Binding FiendlyName}" Style="{StaticResource FriendlyNameLabelStyle}" />
             </Grid>
         </DataTemplate>
 
@@ -163,9 +163,9 @@
                 <ScrollView>
                     <controls:ItemsView ItemsSource="{Binding Items}" 
                                         SelectedItem="{Binding SelectedComponent}"
+                                        SelectedItemCommand="{Binding SelectItemCommand}"
                                         ItemTemplateSelector="{StaticResource componentTemplateSelector}"
-                                        ItemContainerStyle="{StaticResource ItemContainnerStyle}"
-                                        Selected="ItemsView_Selected">
+                                        ItemContainerStyle="{StaticResource ItemContainnerStyle}">
                         <controls:ItemsView.Layout>
                             <controls:GridWrapLayout ColumnSpacing="2" RowSpacing="4" CellMinHeight="120"  CellMinWidth="120"/>
                         </controls:ItemsView.Layout>
@@ -176,15 +176,6 @@
                            IsRunning="{Binding IsBusy}"
                            VerticalOptions="Center" />
 
-            <controls:KeyPadView x:Name="alarmPanel" 
-                                 HeaderText="Enter Code" 
-                                 Code="{Binding Code}"
-                                 Command1="{Binding ArmHomeCommand}"
-                                 Command2="{Binding ArmAwayCommand}"
-                                 WidthRequest="300" 
-                                 MinimumHeightRequest="300" 
-                                 HorizontalOptions="Center" 
-                                 VerticalOptions="Center"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

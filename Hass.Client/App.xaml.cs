@@ -1,31 +1,49 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using System.Threading;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Hass.Client.Views;
-using Hass.Client.ViewModels;
+using Hass.Client.Core;
 
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Hass.Client
 {
-    public partial class App : Application, IShellContext
+    public partial class App : Application, IShellContext, IViewModelNavigation
     {
-        CancellationToken cts = new CancellationToken();
-
+        private static Dictionary<Type, Type> viewTypes = new Dictionary<Type, Type>();
 
         public App()
         {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
         }
+        
+        static App()
+        {
+            Type iViewTp = typeof(IView);
+            Type viewTp = typeof(View);
+            Type pgTp = typeof(Page);
+            Type[] ctorParams = new Type[] { };
 
-        public INavigation Navigation { get; set; }
+            foreach(Type tp in typeof(App).Assembly
+                .GetTypes()
+                .Where(t => iViewTp.IsAssignableFrom(t))
+                .Where(t => viewTp.IsAssignableFrom(t) || pgTp.IsAssignableFrom(t))
+                .Where(t => t.GetConstructor(ctorParams) != null))
+            {
+                Type iMvvm = tp.GetInterface("IView`1");
+                if(iMvvm != null)
+                {
+                    Type vmTp = iMvvm.GetGenericArguments()[0];
+                    viewTypes[vmTp] = tp;
+                }
+            }
+        }
 
-       
         public new static App Current
         {
             get
@@ -34,46 +52,13 @@ namespace Hass.Client
             }
         }
 
-        //private void OnWsClientStateChanged(object sender, HassApi.StateChangedEventArgs e)
-        //{
-        //    HassApi.StateResult state = e.Event.Data.NewState;
-        //    if (e.Event.Data.EntityId == "alarm_control_panel.home_alarm")
-        //    {
-        //        if (state.State == "pending")
-        //        {
-        //            string postState = state.Attributes["post_pending_state"].GetString();
-        //            if (postState == "armed_away")
-        //            {
-        //                PlaySSML("Alarm is being armed for away! You might exit now");
-        //            }
-        //            else if (postState == "triggered")
-        //            {
-        //                PlaySSML("Please enter code to disarm or siren will sound<break time='3s' />", 10);
-        //            }
-        //        }
-        //        else if (state.State == "armed_home")
-        //        {
-        //            PlaySSML("Alarm has been armed for staying!");
-        //        }
-        //        if (state.State == "armed_away")
-        //        {
-        //            PlaySSML("Alarm has been armed for away!");
-        //        }
-        //        else if (state.State == "disarmed")
-        //        {
-        //            PlaySSML("Alarm has been disarmed");
-        //        }
-        //        else if (state.State == "triggered")
-        //        {
-        //            PlaySSML("Alarm is triggered. Please enter code to disarm <break time='3s' />", 10);
-        //        }
-        //        else
-        //        {
-        //            PlaySSML(null, 0);
-        //        }
-        //    }
-        //}
-
+        public IViewModelNavigation Navigation
+        {
+            get
+            {
+                return this;
+            }
+        }
         protected override void OnStart()
         {
             // Handle when your app starts
@@ -94,14 +79,44 @@ namespace Hass.Client
             Device.BeginInvokeOnMainThread(action);
         }
 
-        Task IShellContext.PushAsync(IViewModel viewModel)
+        async Task IViewModelNavigation.PushAsync(IViewModel viewModel)
         {
-            throw new NotImplementedException();
+            await MainPage.Navigation.PushAsync(ResolvePage(FindViewForViewModel(viewModel)));
         }
 
-        Task IShellContext.PushModalAsync(IModalViewModel viewModel)
+        async Task IViewModelNavigation.PushModalAsync(IModalViewModel viewModel)
         {
-            throw new NotImplementedException();
+            await MainPage.Navigation.PushModalAsync(ResolvePage(FindViewForViewModel(viewModel)));
+        }
+
+        public static IView FindViewForViewModel(IViewModel viewModel)
+        {
+            Type vmType = viewModel.GetType();
+            Type viewTp;
+            if(viewTypes.TryGetValue(vmType, out viewTp))
+            {
+                var view = (IView)Activator.CreateInstance(viewTp);
+
+                view.ViewModel = viewModel;
+
+                return view;
+            }
+            throw new ArgumentException($"cannot find view for view model: {vmType}");
+        }
+
+        public static Page ResolvePage(IView view)
+        {
+            Page pg = view as Page;
+            if(pg == null)
+            {
+                pg = new ContentPage
+                {
+                    Content = (View)view,
+                    BindingContext = view.ViewModel
+                };
+                pg.SetBinding(Page.TitleProperty, new Binding("Title"));
+            }
+            return pg;
         }
     }
 }

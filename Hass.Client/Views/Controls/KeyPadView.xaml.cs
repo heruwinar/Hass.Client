@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Hass.Client.Util;
-using Hass.Client.Common;
+using Hass.Client.Core;
 
 namespace Hass.Client.Views.Controls
 {
@@ -52,7 +52,6 @@ namespace Hass.Client.Views.Controls
             InitializeComponent();
             OnCodeChanged();
             lblCodeLabelFontSize = lblCodeLabel.FontSize;
-            BindingContext = this;
         }
 
         public string Code

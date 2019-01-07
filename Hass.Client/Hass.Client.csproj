@@ -117,6 +117,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\AlarmControlPanelView.xaml.cs">
+      <DependentUpon>AlarmControlPanelView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\AlarmControlPanelView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Controls\KeyPadView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -8,7 +8,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Hass.Client.Models;
-using Hass.Client.Common;
 using Hass.Client.ViewModels;
 
 namespace Hass.Client.Views
@@ -56,18 +55,18 @@ namespace Hass.Client.Views
                 viewModel.LoadItemsCommand.Execute(null);
         }
 
-        private async void ItemsView_Selected(object sender, EventArgs e)
-        {
-            var item = ((Controls.ItemsView)sender).SelectedItem as IComponent;
-            if (item != null)
-            {
-                var alarm = item as Models.Components.AlarmControlPanel;
-                if(alarm != null)
-                {
-                    alarmPanel.BindingContext = new ViewModels.Components.AlarmControlPanelViewModel(alarm);
-                }
-                await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-            }
-        }
+        //private async void ItemsView_Selected(object sender, EventArgs e)
+        //{
+        //    var item = ((Controls.ItemsView)sender).SelectedItem as IComponent;
+        //    if (item != null)
+        //    {
+        //        var alarm = item as Models.Components.AlarmControlPanel;
+        //        if(alarm != null)
+        //        {
+        //            alarmPanel.BindingContext = new ViewModels.Components.AlarmControlPanelViewModel(alarm);
+        //        }
+        //        await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+        //    }
+        //}
     }
 }

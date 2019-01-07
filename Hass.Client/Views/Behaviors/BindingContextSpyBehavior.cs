@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Xamarin.Forms;
-using Hass.Client.Common;
+using Hass.Client.Core;
 using Hass.Client.ViewModels;
 
 namespace Hass.Client.Views.Behaviors
@@ -38,7 +38,6 @@ namespace Hass.Client.Views.Behaviors
 
         private void OnPageAppearing(object sender, EventArgs e)
         {
-            App.Current.Navigation = ((Page)sender).Navigation;
         }
 
         protected override void OnDetachingFrom(Page page)

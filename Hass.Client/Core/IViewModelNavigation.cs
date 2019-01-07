@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Hass.Client.ViewModels
+namespace Hass.Client.Core
 {
-    public interface IShellContext
+    public interface IViewModelNavigation
     {
-        void BeginInvokeOnMainThread(Action action);
-
         Task PushAsync(IViewModel viewModel);
 
         Task PushModalAsync(IModalViewModel viewModel);
-    }
 
+    }
 
 }

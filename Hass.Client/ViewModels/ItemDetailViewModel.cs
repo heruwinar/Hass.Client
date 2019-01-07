@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Hass.Client.Core;
 using Hass.Client.Models;
 
 namespace Hass.Client.ViewModels

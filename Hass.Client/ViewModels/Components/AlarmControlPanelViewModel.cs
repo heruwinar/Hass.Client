@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Hass.Client.Models.Components;
-using Hass.Client.Common;
+using Hass.Client.Core;
 
 namespace Hass.Client.ViewModels.Components
 {
@@ -14,6 +14,7 @@ namespace Hass.Client.ViewModels.Components
         public AlarmControlPanelViewModel(AlarmControlPanel entity)
             : base(entity)
         {
+            Title = "Alarm Control Panel";
             ArmAwayCommand = new BindableCommand(OnArmAway) { Text = "ARM AWAY"};
             ArmHomeCommand = new BindableCommand(OnArmHome) { Text = "ARM HOME"};
         }

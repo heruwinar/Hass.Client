@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Hass.Client.HassApi;
 using Hass.Client.Models.Components;
 using Xamarin.Forms;
+using Hass.Client.Core;
 
 namespace Hass.Client.Models
 {

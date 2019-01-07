@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Xamarin.Forms;
-using Hass.Client.Models;
 
-namespace Hass.Client.ViewModels
+namespace Hass.Client.Core
 {
     public class ViewModelBase : ModelBase, IViewModel
     {
@@ -31,6 +26,20 @@ namespace Hass.Client.ViewModels
             {
                 return App.Current;
             }
+        }
+
+        public IViewModelNavigation Naviation
+        {
+            get
+            {
+                return ((IViewModel)this).Navigation ?? ShellContext.Navigation;
+            }
+        }
+
+        IViewModelNavigation IViewModel.Navigation
+        {
+            get;
+            set;
         }
 
     }

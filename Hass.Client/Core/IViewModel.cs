@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hass.Client.ViewModels
+namespace Hass.Client.Core
 {
     public interface IViewModel
     {
@@ -11,6 +11,8 @@ namespace Hass.Client.ViewModels
         bool IsBusy { get; }
 
         IShellContext ShellContext { get; }
+
+        IViewModelNavigation Navigation { get; set; }
 
     }
 

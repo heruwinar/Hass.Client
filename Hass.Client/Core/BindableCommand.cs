@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 
-namespace Hass.Client.Common
+namespace Hass.Client.Core
 {
-    public class BindableCommand<T> : Models.ModelBase, ICommand
+    public class BindableCommand<T> : ModelBase, ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -57,9 +57,9 @@ namespace Hass.Client.Common
             }
         }
 
-        public bool CanExecute(object parameter)
+        public virtual bool CanExecute(object parameter)
         {
-            return IsExecutable;
+            return IsExecutable && parameter is T;
         }
 
         public void Execute(T parameter)
@@ -78,6 +78,11 @@ namespace Hass.Client.Common
         public BindableCommand(Action action)
             :base(p => action())
         {
+        }
+
+        public override bool CanExecute(object parameter)
+        {
+            return IsExecutable;
         }
 
     }

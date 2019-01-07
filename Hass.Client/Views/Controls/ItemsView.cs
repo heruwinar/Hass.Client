@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Hass.Client.Views.Controls
@@ -100,6 +101,11 @@ namespace Hass.Client.Views.Controls
             propertyChanged: (bindable, oldvalue, newvalue) => ((ItemsView)bindable).OnSelectedItemChanged(oldvalue, newvalue));
 
 
+        public static BindableProperty SelectedItemCommandProperty = BindableProperty.Create(
+            "SelectedItemCommand",
+            typeof(ICommand),
+            typeof(ItemsView));
+
         private TapGestureRecognizer tabGestureRecognizer;
 
         public ItemsView()
@@ -116,6 +122,10 @@ namespace Hass.Client.Views.Controls
             {
                 itemCtrl.IsSelected = true;
                 Selected?.Invoke(this, EventArgs.Empty);
+                if(SelectedItemCommand?.CanExecute(SelectedItem) == true)
+                {
+                    SelectedItemCommand.Execute(SelectedItem);
+                }
             }
         }
 
@@ -147,6 +157,18 @@ namespace Hass.Client.Views.Controls
         {
             get { return (Style)GetValue(ItemContainerStyleProperty); }
             set { SetValue(ItemContainerStyleProperty, value); }
+        }
+
+        public ICommand SelectedItemCommand
+        {
+            get
+            {
+                return (ICommand)GetValue(SelectedItemCommandProperty);
+            }
+            set
+            {
+                SetValue(SelectedItemCommandProperty, value);
+            }
         }
 
         private void OnLayoutChanged(Layout<View> oldValue, Layout<View> newValue)

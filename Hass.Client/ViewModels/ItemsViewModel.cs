@@ -3,9 +3,8 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Hass.Client.Common;
 using Hass.Client.Models;
-using Hass.Client.Views;
+using Hass.Client.Core;
 
 namespace Hass.Client.ViewModels
 {
@@ -24,9 +23,11 @@ namespace Hass.Client.ViewModels
             //{
             //});
             ExecuteLoadItemsCommand();
+
+            SelectItemCommand = new BindableCommand<IComponent>(SelectItem);
         }
 
-        public BindableCommand SelectItemCommand { get; private set; }
+        public BindableCommand<IComponent> SelectItemCommand { get; private set; }
 
         public IComponent SelectedComponent
         {
@@ -83,6 +84,16 @@ namespace Hass.Client.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        public void SelectItem(IComponent item)
+        {
+            var alarm = item as Models.Components.AlarmControlPanel;
+            if (alarm != null)
+            {
+                var alarmVm = new ViewModels.Components.AlarmControlPanelViewModel(alarm);
+                Naviation.PushAsync(alarmVm);
             }
         }
     }

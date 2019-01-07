@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Hass.Client.Core;
 using Hass.Client.Models;
 
 namespace Hass.Client.ViewModels.Components
