@@ -15,15 +15,9 @@ namespace Hass.Client.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Products";
             Items = new ObservableCollection<IComponent>();
             LoadItemsCommand = new BindableCommand(async () => await ExecuteLoadItemsCommand());
-
-            //MessagingCenter.Subscribe<NewItemPage, IComponent>(this, "AddItem", (obj, item) =>
-            //{
-            //});
-            ExecuteLoadItemsCommand();
-
             SelectItemCommand = new BindableCommand<IComponent>(SelectItem);
         }
 

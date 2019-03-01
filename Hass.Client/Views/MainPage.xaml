@@ -1,13 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Hass.Client.Views.MainPage"
             xmlns:views="clr-namespace:Hass.Client.Views"
-            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-            android:TabbedPage.ToolbarPlacement="Bottom"
-            CurrentPageChanged="TabbedPage_CurrentPageChanged"            
-            x:Class="Hass.Client.Views.MainPage">
-    <TabbedPage.Children>
-        <views:ItemsPage />
-        <views:AboutPage />
-    </TabbedPage.Children>
+            xmlns:products="clr-namespace:Hass.Client.ViewModels.Product"
+            xmlns:productsView="clr-namespace:Hass.Client.Views.Products"
+            xmlns:scene="clr-namespace:Hass.Client.ViewModels.Scene"
+            xmlns:sceneView="clr-namespace:Hass.Client.Views.Scene"
+            xmlns:automation="clr-namespace:Hass.Client.Views.Automation"
+            xmlns:shortcut="clr-namespace:Hass.Client.Views.Shortcut"
+            xmlns:controls="clr-namespace:Hass.Client.Views.Controls"
+            xmlns:converters="clr-namespace:Hass.Client.Views.Converters"
+            xmlns:behaviors="clr-namespace:Hass.Client.Views.Behaviors"
+            xmlns:components="clr-namespace:Hass.Client.Models.Components">
+    
+    <TabbedPage.Resources>
+        <DataTemplate x:Key="productsTemplate">
+            <productsView:ProductGroupsPage />
+        </DataTemplate>
+
+        <DataTemplate x:Key="sceneTemplate">
+            <sceneView:ScenePage />
+        </DataTemplate>
+        <controls:ByTypeDataTemplateSelector x:Key="tabItemTemplateSelector">
+            <controls:TemplateEntry Type="{x:Type products:ProductModule}" DataTemplate="{StaticResource productsTemplate}" />
+            <controls:TemplateEntry Type="{x:Type scene:SceneModule}" DataTemplate="{StaticResource sceneTemplate}" />
+        </controls:ByTypeDataTemplateSelector>
+    </TabbedPage.Resources>
+    <TabbedPage.Behaviors>
+        <behaviors:TabbedPageBehavior ItemsSource="{Binding AppModules}" 
+                                      ItemTemplateSelector="{StaticResource tabItemTemplateSelector}" 
+                                      SelectedItem="{Binding SelectedAppModule}"/>
+    </TabbedPage.Behaviors>
 </TabbedPage>

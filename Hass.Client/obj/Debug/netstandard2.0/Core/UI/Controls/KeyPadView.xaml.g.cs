@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Hass.Client.Views.Controls.KeyPadView.xaml", "Views/Controls/KeyPadView.xaml", typeof(global::Hass.Client.Views.Controls.KeyPadView))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Hass.Client.Core.UI.Controls.KeyPadView.xaml", "Core/UI/Controls/KeyPadView.xaml", typeof(global::Hass.Client.Views.Controls.KeyPadView))]
 
 namespace Hass.Client.Views.Controls {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\Controls\\KeyPadView.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Core\\UI\\Controls\\KeyPadView.xaml")]
     public partial class KeyPadView : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

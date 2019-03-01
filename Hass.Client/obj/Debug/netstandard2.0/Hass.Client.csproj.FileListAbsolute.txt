@@ -23,7 +23,7 @@ E:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\Hass.Client.pdb
 E:\Workspaces\Hass.Client\Hass.Client\bin\Debug\netstandard2.0\WebSockets.PCL.dll
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\App.xaml.g.cs
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
-E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\Controls\KeyPadView.xaml.g.cs
+E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\AlarmControlPanelView.xaml.g.cs
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\ItemsPage.xaml.g.cs
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
@@ -36,4 +36,9 @@ E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.cspro
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.dll
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.pdb
 E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Hass.Client.csprojAssemblyReference.cache
-E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\AlarmControlPanelView.xaml.g.cs
+E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Core\UI\Controls\KeyPadView.xaml.g.cs
+E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\Automation\AutomationPage.xaml.g.cs
+E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\Products\ProductGroupsPage.xaml.g.cs
+E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\Shortcut\ShortcutPage.xaml.g.cs
+E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Views\Scene\ScenePage.xaml.g.cs
+E:\Workspaces\Hass.Client\Hass.Client\obj\Debug\netstandard2.0\Resources\Components.xaml.g.cs

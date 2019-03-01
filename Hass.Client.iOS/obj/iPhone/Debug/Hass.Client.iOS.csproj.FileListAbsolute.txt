@@ -52,12 +52,6 @@ E:\Workspaces\Hass.Client\Hass.Client.iOS\bin\iPhone\Debug\Hass.Client.dll
 E:\Workspaces\Hass.Client\Hass.Client.iOS\bin\iPhone\Debug\Websockets.Ios.dll
 E:\Workspaces\Hass.Client\Hass.Client.iOS\bin\iPhone\Debug\WebSockets.PCL.dll
 E:\Workspaces\Hass.Client\Hass.Client.iOS\bin\iPhone\Debug\Hass.Client.pdb
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.csprojAssemblyReference.cache
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.csproj.CoreCompileInputs.cache
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\XamlC.stamp
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.csproj.CopyComplete
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.exe
-E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.pdb
 E:\Workspaces\Hass.Client\Hass.Client.iOS\bin\iPhone\Debug\Hass.Client.dll.mdb
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
@@ -74,3 +68,9 @@ E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\optimized\xamarin_log
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\optimized\xamarin_logo@2x.png
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\optimized\xamarin_logo@3x.png
 E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\optimized\
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.csprojAssemblyReference.cache
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.csproj.CoreCompileInputs.cache
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\XamlC.stamp
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.csproj.CopyComplete
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.exe
+E:\Workspaces\Hass.Client\Hass.Client.iOS\obj\iPhone\Debug\Hass.Client.iOS.pdb

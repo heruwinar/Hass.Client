@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Hass.Client.Views.Controls;assembly=Hass.Client"
+             xmlns:converters="clr-namespace:Hass.Client.Views.Converters;assembly=Hass.Client"
+             xmlns:behaviors="clr-namespace:Hass.Client.Views.Behaviors;assembly=Hass.Client"
+             xmlns:components="clr-namespace:Hass.Client.Models.Components;assembly=Hass.Client">
+
+    <Style x:Key="BaseTextStyle" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+    </Style>
+
+    <Style x:Key="SvgIconStyle" TargetType="{x:Type controls:SvgIcon}">
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="Margin" Value="2,0,0,0" />
+    </Style>
+
+    <Style x:Key="BadgeFrameStyle" TargetType="{x:Type Frame}">
+        <Setter Property="BorderColor" Value="Red" />
+        <Setter Property="BackgroundColor" Value="Red" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="MinimumWidthRequest" Value="10" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Margin" Value="0,0,0,-5" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        <Setter Property="VerticalOptions" Value="End" />
+    </Style>
+
+    <Style x:Key="BadgeLabelStyle" TargetType="{x:Type Label}" BasedOn="{StaticResource BaseTextStyle}">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+
+    <Style x:Key="StateLabelStyle" TargetType="{x:Type Label}" BasedOn="{StaticResource BaseTextStyle}">
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="FriendlyNameLabelStyle" TargetType="{x:Type Label}" BasedOn="{StaticResource BaseTextStyle}">
+    </Style>
+
+    <DataTemplate x:Key="AlarmControlPanelTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <controls:Circle StrokeColor="Orange" StrokeWidth="2"/>
+                <controls:SvgIcon x:Name="alarmSvg" SvgResourceKey="{Binding State, Converter={x:Static converters:AlarmControlPanelStateSvgConverter.Default}}" Style="{StaticResource SvgIconStyle}" />
+                <Frame Style="{StaticResource BadgeFrameStyle}">
+                    <Label Text="{Binding State, Converter={x:Static converters:AlarmControlPanelStateTextConverter.Default}}" Style="{StaticResource BadgeLabelStyle}"/>
+                </Frame>
+            </Grid>
+            <!--<Label Grid.Row="1" Text="{Binding FriendlyName}" Style="{StaticResource FriendlyNameLabelStyle}"/>-->
+            <Label Grid.Row="1" Text="{Binding FiendlyName}" Style="{StaticResource FriendlyNameLabelStyle}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SensorTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <controls:Circle StrokeColor="Orange" StrokeWidth="2"/>
+                <Frame Style="{StaticResource BadgeFrameStyle}" IsVisible="{Binding UnitOfMeasurement, Converter={x:Static converters:IsEmptyConverter.IsNotEmpty}}">
+                    <Label Text="{Binding UnitOfMeasurement}" Style="{StaticResource BadgeLabelStyle}"/>
+                </Frame>
+            </Grid>
+            <Label Grid.Row="0" Text="{Binding State}" Style="{StaticResource StateLabelStyle}"/>
+            <Label Grid.Row="1" Text="{Binding FriendlyName}" Style="{StaticResource FriendlyNameLabelStyle}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="BinarySensorTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <controls:Circle StrokeColor="#abc" StrokeWidth="2"/>
+                <controls:SvgIcon x:Name="alarmSvg" SvgResourceKey="{Binding State, Converter={x:Static converters:BinarySensorStateSvgConverter.Default}}" Style="{StaticResource SvgIconStyle}" />
+            </Grid>
+            <Label Grid.Row="1" Text="{Binding FriendlyName}" Style="{StaticResource FriendlyNameLabelStyle}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="DefaultComponentTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <controls:Circle StrokeColor="Orange" StrokeWidth="2">
+                </controls:Circle>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <Style x:Key="ItemContainnerStyle" TargetType="{x:Type controls:ItemContainer}">
+        <Setter Property="BackgroundColor" Value="AliceBlue" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="IsTabStop" Value="true" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="BorderColor" Value="LightGray" />
+        <Setter Property="WidthRequest" Value="400" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="Padding" Value="4" />
+        <Style.Triggers>
+            <Trigger TargetType="controls:ItemContainer" Property="IsSelected" Value="True">
+                <Setter Property="BackgroundColor" Value="Beige" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <controls:ByTypeDataTemplateSelector x:Key="componentTemplateSelector" DefaultTemplate="{StaticResource DefaultComponentTemplate}">
+        <controls:TemplateEntry Type="{x:Type components:AlarmControlPanel}" DataTemplate="{StaticResource AlarmControlPanelTemplate}" />
+        <controls:TemplateEntry Type="{x:Type components:BinarySensor}" DataTemplate="{StaticResource BinarySensorTemplate}" />
+        <controls:TemplateEntry Type="{x:Type components:Sensor}" DataTemplate="{StaticResource SensorTemplate}" />
+    </controls:ByTypeDataTemplateSelector>
+
+</ResourceDictionary>

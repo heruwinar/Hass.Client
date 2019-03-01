@@ -11,95 +11,95 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\Controls\Svg\Alarm-armed-away.svg" />
-    <None Remove="Views\Controls\Svg\Alarm-armed-home.svg" />
-    <None Remove="Views\Controls\Svg\alarm-pending-armed-away.svg" />
-    <None Remove="Views\Controls\Svg\alarm-pending-triggered.svg" />
-    <None Remove="Views\Controls\Svg\Alarm-triggered.svg" />
-    <None Remove="Views\Controls\Svg\appletv.svg" />
-    <None Remove="Views\Controls\Svg\automation.svg" />
-    <None Remove="Views\Controls\Svg\Bell.svg" />
-    <None Remove="Views\Controls\Svg\Binary-sensor-off.svg" />
-    <None Remove="Views\Controls\Svg\Binary-sensor-on.svg" />
-    <None Remove="Views\Controls\Svg\climate-cool.svg" />
-    <None Remove="Views\Controls\Svg\climate-heat.svg" />
-    <None Remove="Views\Controls\Svg\configurator - Copy.svg" />
-    <None Remove="Views\Controls\Svg\configurator.svg" />
-    <None Remove="Views\Controls\Svg\dashboard.svg" />
-    <None Remove="Views\Controls\Svg\Emergency-heat-off.svg" />
-    <None Remove="Views\Controls\Svg\hassio.svg" />
-    <None Remove="Views\Controls\Svg\history.svg" />
-    <None Remove="Views\Controls\Svg\info.svg" />
-    <None Remove="Views\Controls\Svg\Lock-locked.svg" />
-    <None Remove="Views\Controls\Svg\Lock-unlocked.svg" />
-    <None Remove="Views\Controls\Svg\logbook.svg" />
-    <None Remove="Views\Controls\Svg\overview.svg" />
-    <None Remove="Views\Controls\Svg\player-next.svg" />
-    <None Remove="Views\Controls\Svg\player-pause.svg" />
-    <None Remove="Views\Controls\Svg\player-play.svg" />
-    <None Remove="Views\Controls\Svg\player-prev.svg" />
-    <None Remove="Views\Controls\Svg\player-stop.svg" />
-    <None Remove="Views\Controls\Svg\power-off.svg" />
-    <None Remove="Views\Controls\Svg\power-on.svg" />
-    <None Remove="Views\Controls\Svg\remote.svg" />
-    <None Remove="Views\Controls\Svg\send.svg" />
-    <None Remove="Views\Controls\Svg\setting.svg" />
-    <None Remove="Views\Controls\Svg\Sun-rise.svg" />
-    <None Remove="Views\Controls\Svg\Sun-set.svg" />
-    <None Remove="Views\Controls\Svg\Switch-off.svg" />
-    <None Remove="Views\Controls\Svg\switch-on.svg" />
-    <None Remove="Views\Controls\Svg\Thermostat-offline.svg" />
-    <None Remove="Views\Controls\Svg\Thermostat-online.svg" />
-    <None Remove="Views\Controls\Svg\User.svg" />
-    <None Remove="Views\Controls\Svg\usermap.svg" />
-    <None Remove="Views\Controls\Svg\ZWave-ready.svg" />
-    <None Remove="Views\Controls\Svg\ZWave-sleeping.svg" />
+    <None Remove="Core\UI\Controls\Svg\Alarm-armed-away.svg" />
+    <None Remove="Core\UI\Controls\Svg\Alarm-armed-home.svg" />
+    <None Remove="Core\UI\Controls\Svg\alarm-pending-armed-away.svg" />
+    <None Remove="Core\UI\Controls\Svg\alarm-pending-triggered.svg" />
+    <None Remove="Core\UI\Controls\Svg\Alarm-triggered.svg" />
+    <None Remove="Core\UI\Controls\Svg\appletv.svg" />
+    <None Remove="Core\UI\Controls\Svg\automation.svg" />
+    <None Remove="Core\UI\Controls\Svg\Bell.svg" />
+    <None Remove="Core\UI\Controls\Svg\Binary-sensor-off.svg" />
+    <None Remove="Core\UI\Controls\Svg\Binary-sensor-on.svg" />
+    <None Remove="Core\UI\Controls\Svg\climate-cool.svg" />
+    <None Remove="Core\UI\Controls\Svg\climate-heat.svg" />
+    <None Remove="Core\UI\Controls\Svg\configurator - Copy.svg" />
+    <None Remove="Core\UI\Controls\Svg\configurator.svg" />
+    <None Remove="Core\UI\Controls\Svg\dashboard.svg" />
+    <None Remove="Core\UI\Controls\Svg\Emergency-heat-off.svg" />
+    <None Remove="Core\UI\Controls\Svg\hassio.svg" />
+    <None Remove="Core\UI\Controls\Svg\history.svg" />
+    <None Remove="Core\UI\Controls\Svg\info.svg" />
+    <None Remove="Core\UI\Controls\Svg\Lock-locked.svg" />
+    <None Remove="Core\UI\Controls\Svg\Lock-unlocked.svg" />
+    <None Remove="Core\UI\Controls\Svg\logbook.svg" />
+    <None Remove="Core\UI\Controls\Svg\overview.svg" />
+    <None Remove="Core\UI\Controls\Svg\player-next.svg" />
+    <None Remove="Core\UI\Controls\Svg\player-pause.svg" />
+    <None Remove="Core\UI\Controls\Svg\player-play.svg" />
+    <None Remove="Core\UI\Controls\Svg\player-prev.svg" />
+    <None Remove="Core\UI\Controls\Svg\player-stop.svg" />
+    <None Remove="Core\UI\Controls\Svg\power-off.svg" />
+    <None Remove="Core\UI\Controls\Svg\power-on.svg" />
+    <None Remove="Core\UI\Controls\Svg\remote.svg" />
+    <None Remove="Core\UI\Controls\Svg\send.svg" />
+    <None Remove="Core\UI\Controls\Svg\setting.svg" />
+    <None Remove="Core\UI\Controls\Svg\Sun-rise.svg" />
+    <None Remove="Core\UI\Controls\Svg\Sun-set.svg" />
+    <None Remove="Core\UI\Controls\Svg\Switch-off.svg" />
+    <None Remove="Core\UI\Controls\Svg\switch-on.svg" />
+    <None Remove="Core\UI\Controls\Svg\Thermostat-offline.svg" />
+    <None Remove="Core\UI\Controls\Svg\Thermostat-online.svg" />
+    <None Remove="Core\UI\Controls\Svg\User.svg" />
+    <None Remove="Core\UI\Controls\Svg\usermap.svg" />
+    <None Remove="Core\UI\Controls\Svg\ZWave-ready.svg" />
+    <None Remove="Core\UI\Controls\Svg\ZWave-sleeping.svg" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\Svg\alarm-pending-triggered.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\configurator - Copy.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\configurator.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\dashboard.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\logbook.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\overview.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\history.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\hassio.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\info.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\player-pause.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\player-stop.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\player-play.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\player-prev.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\player-next.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\send.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\appletv.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\power-off.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\power-on.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\automation.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\remote.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\climate-cool.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\climate-heat.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\binary-sensor-on.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\binary-sensor-off.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\usermap.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\switch-on.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\thermostat-offline.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\thermostat-online.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\emergency-heat-off.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\setting.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\user.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\sun-set.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\sun-rise.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\alarm-armed-away.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\alarm-armed-home.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\alarm-pending-armed-away.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\alarm-triggered.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\bell.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\lock-locked.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\lock-unlocked.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\switch-off.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\zwave-sleeping.svg" />
-    <EmbeddedResource Include="Views\Controls\Svg\zwave-ready.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\alarm-pending-triggered.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\configurator - Copy.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\configurator.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\dashboard.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\logbook.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\overview.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\history.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\hassio.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\info.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\player-pause.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\player-stop.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\player-play.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\player-prev.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\player-next.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\send.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\appletv.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\power-off.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\power-on.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\automation.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\remote.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\climate-cool.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\climate-heat.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\binary-sensor-on.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\binary-sensor-off.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\usermap.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\switch-on.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\thermostat-offline.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\thermostat-online.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\emergency-heat-off.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\setting.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\user.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\sun-set.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\sun-rise.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\alarm-armed-away.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\alarm-armed-home.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\alarm-pending-armed-away.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\alarm-triggered.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\bell.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\lock-locked.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\lock-unlocked.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\switch-off.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\zwave-sleeping.svg" />
+    <EmbeddedResource Include="Core\UI\Controls\Svg\zwave-ready.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -120,13 +120,28 @@
     <Compile Update="Views\AlarmControlPanelView.xaml.cs">
       <DependentUpon>AlarmControlPanelView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Products\ProductGroupsPage.xaml.cs">
+      <DependentUpon>ProductGroupsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scene\ScenePage.xaml.cs">
+      <DependentUpon>ScenePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Views\AlarmControlPanelView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Controls\KeyPadView.xaml">
+    <EmbeddedResource Update="Core\UI\Controls\KeyPadView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Automation\AutomationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Scene\ScenePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Shortcut\ShortcutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -150,5 +165,9 @@
     <None Update="Views\NewItemPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Main\" />
   </ItemGroup>
 </Project>

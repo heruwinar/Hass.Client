@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Hass.Client.ViewModels;
 
 namespace Hass.Client.Views
 {
@@ -11,11 +12,7 @@ namespace Hass.Client.Views
         public MainPage()
         {
             InitializeComponent();
-        }
-
-        private void TabbedPage_CurrentPageChanged(object sender, EventArgs e)
-        {
-            
+            BindingContext = new AppShell();
         }
     }
 }
